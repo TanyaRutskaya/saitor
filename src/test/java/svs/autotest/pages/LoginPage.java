@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
     public class LoginPage extends ElementActions {
 
 
+
         By username = By.id("user_name");
         By loginButton = By.id("login_button");
         By welcomeLink = By.id("welcome_link");
