@@ -37,11 +37,11 @@ public class RunTestCases extends Global {
 
     @Test
     public void RunCases() throws IOException {
-        loginValidCredentials.pageNavigation();
-        loginInvalidCredentials.IncorrectLogin();
-        loginEditInputValues.AbilityEdit();
-        profDetailsJobNotEditable.jobIneditable();
-        profDetailsLangEditable.langEdit();
+       //loginValidCredentials.pageNavigation();
+     //  loginInvalidCredentials.IncorrectLogin();
+       // loginEditInputValues.AbilityEdit();
+       // profDetailsJobNotEditable.jobIneditable();
+       profDetailsLangEditable.langEdit();
 
 
     }
@@ -50,6 +50,8 @@ public class RunTestCases extends Global {
     public void tearDownClass() {
         loginValidCredentials.navigate.closeDriver();
         loginInvalidCredentials.navigate.closeDriver();
+        profDetailsJobNotEditable.navigate.closeDriver();
+        profDetailsLangEditable.navigate.closeDriver();
 
     }
 

@@ -7,7 +7,11 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import svs.autotest.GoogleExcel.CheckRecorder;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
+
+
 
 
 public class ProfDetails_JobNotEditable extends ElementActions {
@@ -20,24 +24,27 @@ public class ProfDetails_JobNotEditable extends ElementActions {
     public void jobIneditable() throws IOException {
         navigate.openBrowser();
         navigate.maximizeBrowser();
+
+
+
         navigate.to($("URL1"));
         Alert alert = driver.switchTo().alert();
         alert.accept();
         navigate.to($("URL2"));
 
 
-        if ( driver.findElement(By.className("edit-button hide")).isDisplayed()) {
-            wait.presenceOfElement(edit, 15000);
-            if(driver.findElement(edit) != null) {
-                CheckRecorder.setValue("build 1!D21", "failed");
-            } else {
+        if ( driver.findElement(By.className("edit-button")).isDisplayed()) {
+           wait.presenceOfElement(edit, 15000);
+           if(driver.findElement(edit) != null) {
+               CheckRecorder.setValue("build 1!D21", "failed");
+           } else {
                 CheckRecorder.setValue("build 1!D21", "passed");
-            }
+           }
 
         } else {
-            CheckRecorder.setValue("build 1!D21", "passed");
+           CheckRecorder.setValue("build 1!D21", "passed");
         }
-    }
+   }
 
 
 
