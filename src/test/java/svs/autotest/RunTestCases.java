@@ -36,14 +36,17 @@ public class RunTestCases extends Global {
     }
 
     @Test
-    public void RunCases() throws IOException {
-       //loginValidCredentials.pageNavigation();
-     //  loginInvalidCredentials.IncorrectLogin();
-       // loginEditInputValues.AbilityEdit();
-       // profDetailsJobNotEditable.jobIneditable();
-       profDetailsLangEditable.langEdit();
-
-
+   public void RunCases() throws IOException {
+     //   loginValidCredentials.pageNavigation();
+      //  loginInvalidCredentials.IncorrectLogin();
+     //   loginEditInputValues.AbilityEdit();
+      //  profDetailsJobNotEditable.jobIneditable();
+        profDetailsLangEditable.newlang();
+        profDetailsLangEditable.cancelEditLang();
+        profDetailsLangEditable.langEdit();
+        profDetailsLangEditable.langprofEdit();
+        profDetailsLangEditable.cancelCreateLang();
+        profDetailsLangEditable.removelang();
     }
 
     @AfterClass

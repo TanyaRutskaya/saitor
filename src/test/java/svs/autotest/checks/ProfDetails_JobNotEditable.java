@@ -19,12 +19,11 @@ public class ProfDetails_JobNotEditable extends ElementActions {
     By username = By.id("user_name");
     By loginButton = By.id("login_button");
     By welcomeLink = By.id("welcome_link");
-    By edit = By.className("Edit");
+    By edit = By.className("edit-button");
 
     public void jobIneditable() throws IOException {
         navigate.openBrowser();
         navigate.maximizeBrowser();
-
 
 
         navigate.to($("URL1"));
@@ -33,20 +32,21 @@ public class ProfDetails_JobNotEditable extends ElementActions {
         navigate.to($("URL2"));
 
 
-        if ( driver.findElement(By.className("edit-button")).isDisplayed()) {
-           wait.presenceOfElement(edit, 15000);
-           if(driver.findElement(edit) != null) {
-               CheckRecorder.setValue("build 1!D21", "failed");
-           } else {
-                CheckRecorder.setValue("build 1!D21", "passed");
-           }
+        wait.presenceOfElement(edit, 15000);
+        if (driver.findElement(edit) != null) {
 
-        } else {
-           CheckRecorder.setValue("build 1!D21", "passed");
+            if (driver.findElement(edit) != null) {
+                CheckRecorder.setValue("build 1!D22", "passed");
+            } else {
+                CheckRecorder.setValue("build 1!D22", "failed");
+            }
         }
-   }
 
 
 
-}
+
+    }
+
+
+    }
 
