@@ -17,7 +17,7 @@ public class RunTestCases extends Global {
     Login_EditInputValues loginEditInputValues = new Login_EditInputValues();
     ProfDetails_JobNotEditable profDetailsJobNotEditable =new ProfDetails_JobNotEditable();
     ProfDetails_LangEditable profDetailsLangEditable =new ProfDetails_LangEditable();
-
+    ProfDetails_EducationEditable profDetails_educationEditable = new ProfDetails_EducationEditable();
 
     @BeforeClass
     public void setUpClass() throws IOException {
@@ -41,12 +41,20 @@ public class RunTestCases extends Global {
       //  loginInvalidCredentials.IncorrectLogin();
      //   loginEditInputValues.AbilityEdit();
       //  profDetailsJobNotEditable.jobIneditable();
-        profDetailsLangEditable.newlang();
-        profDetailsLangEditable.cancelEditLang();
-        profDetailsLangEditable.langEdit();
-        profDetailsLangEditable.langprofEdit();
-        profDetailsLangEditable.cancelCreateLang();
-        profDetailsLangEditable.removelang();
+//        profDetailsLangEditable.newlang();
+//        profDetailsLangEditable.cancelEditLang();
+//        profDetailsLangEditable.langEdit();
+//        profDetailsLangEditable.langprofEdit();
+//        profDetailsLangEditable.cancelCreateLang();
+//        profDetailsLangEditable.removelang();
+        profDetails_educationEditable.addEdu();
+        profDetails_educationEditable.langEditCancel();
+        profDetails_educationEditable.editCalendarPeriod();
+        profDetails_educationEditable.editEdu();
+        profDetails_educationEditable.removeEdu();
+        profDetails_educationEditable.cancelCreateEdu();
+        profDetails_educationEditable.dateToEarlier();
+        profDetails_educationEditable.dateAlphabetical();
     }
 
     @AfterClass

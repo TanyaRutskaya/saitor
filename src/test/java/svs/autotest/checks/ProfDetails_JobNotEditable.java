@@ -3,12 +3,9 @@ package svs.autotest.checks;
 import com.seavus.common.elements.ElementActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import svs.autotest.GoogleExcel.CheckRecorder;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 
@@ -19,9 +16,9 @@ public class ProfDetails_JobNotEditable extends ElementActions {
     By username = By.id("user_name");
     By loginButton = By.id("login_button");
     By welcomeLink = By.id("welcome_link");
-    By edit = By.className("edit-button");
+    By edit = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Job Position']]//button[@title='Edit']");
 
-    public void jobIneditable() throws IOException {
+    public boolean jobIneditable() throws IOException {
         navigate.openBrowser();
         navigate.maximizeBrowser();
 
@@ -32,15 +29,14 @@ public class ProfDetails_JobNotEditable extends ElementActions {
         navigate.to($("URL2"));
 
 
-        wait.presenceOfElement(edit, 15000);
-        if (driver.findElement(edit) != null) {
-
-            if (driver.findElement(edit) != null) {
-                CheckRecorder.setValue("build 1!D22", "passed");
-            } else {
-                CheckRecorder.setValue("build 1!D22", "failed");
-            }
+       // wait.presenceOfElement(edit, 15000);
+        try {
+            driver.findElement(edit);
+            CheckRecorder.setValue("build 1!D21", "failed");
+        } catch (NoSuchElementException ex) {
+            CheckRecorder.setValue("build 1!D21", "passed");
         }
+        return true;
 
 
 
