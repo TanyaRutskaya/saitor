@@ -16,19 +16,19 @@ import java.util.List;
 
 public class ProfDetails_LangEditable extends ElementActions {
 
-
+By languageblock = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]");
     By newlan = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//button[@title='Create new']");
     By editeng = By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//div[@class='col-xs-12 padding-left-none' and .//p[text()='English']]//button[@title='Edit']");
     By editgerman = By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//div[@class='col-xs-12 padding-left-none' and .//p[text()='Deutch']]//button[@title='Edit']");
     By language = By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//input[@name ='cvComposition.inputForms.languageModel.name']");
     By langprofEn = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//select");
-    By langprofDe = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//p[@class='subtitle' and text()='Elementary']");
-    By create = By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-success margin-r-5' and text()='Create']");
-    By saveEdition= By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-success margin-r-5' and text()='Save']");
+    By langprofDe = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//p[@class='subtitle' and text()='Limited Working']");
+    By save = By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//span[text()='Save']");
     By german = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//p[@class='title' and text()='Deutch']");
+   By chinese = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//p[@class='title' and text()='Chinese']");
     By english = By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//p[@class='title' and text()='English']");
     By englishinfield=By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//input[@value='English']");
-    By remove= By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//a[text()='Remove']");
+    By remove= By.xpath("//div[@class='col-xs-12 child-component' and //*[text()='Language']]//span[text()='Remove']");
     By cancel = By.xpath("/html/body/div/div/div[2]/div/div/div[3]/div[3]/div[2]/form/div/div[2]/button[2]");
     By cancelEdition = By.xpath(".//div[@class='col-xs-12 child-component' and //*[text()='Language']]//span[@class='cancel-button glyphicon glyphicon-remove']");
     By langrow = By.xpath(".//div[@class='col-xs-12 child-component' and .//h5[text()='Language']]//div[@class='col-xs-12 padding-left-none']");
@@ -45,22 +45,15 @@ public class ProfDetails_LangEditable extends ElementActions {
         wait.presenceOfElement(newlan);
         WebElement element = driver.findElement(newlan);
         Actions action = new Actions(driver);
-
-
-        try {
+        //action.moveToElement(element).build().perform();
+        scrolluntilvisibility();
             action.moveToElement(element).build().perform();
-        } catch (MoveTargetOutOfBoundsException ex) {
-
-        scroll();
-            action.moveToElement(element).build().perform();
-
-        }
             button.click(newlan);
             button.click(language);
             input.type(language, "English");
             Select level = new Select(driver.findElement(langprofEn));
             level.selectByValue("NATIVE");
-            button.click(create);
+            button.click(save);
 
         try {
 
@@ -77,12 +70,12 @@ public class ProfDetails_LangEditable extends ElementActions {
 
             WebElement element2 = driver.findElement(editeng);
             Actions action= new Actions(driver);
-            scroll();
+            scrolluntilvisibility();
             action.moveToElement(element2).build().perform();
             button.click(editeng);
             input.clear(englishinfield);
             input.type(language, "Deutch");
-            button.click(saveEdition);
+            button.click(save);
 
             try {
 
@@ -107,17 +100,17 @@ public class ProfDetails_LangEditable extends ElementActions {
 
 
         Select level2 = new Select(driver.findElement(langprofEn));
-        level2.selectByValue("ELEMENTARY");
-        button.click(saveEdition);
+        level2.selectByValue("LIMITED_WORKING");
+        button.click(save);
 
 
-        if (driver.findElement(langprofDe) != null) {
-            if (driver.findElement(langprofDe) != null) {
-                CheckRecorder.setValue("build 1!D24", "passed");
-            } else {
-                CheckRecorder.setValue("build 1!D24", "failed");
-            }
+        try {
+            driver.findElement(langprofDe);
+            CheckRecorder.setValue("build 1!D24", "passed");
+        } catch (NoSuchElementException ex) {
+            CheckRecorder.setValue("build 1!D24", "failed");
         }
+
 
         return true;
     }
@@ -131,7 +124,7 @@ public class ProfDetails_LangEditable extends ElementActions {
         action.moveToElement(element6).build().perform();
         button.click(editeng);
         Select level3 = new Select(driver.findElement(langprofEn));
-        level3.selectByValue("PROFESSIONAL_WORKING");
+        level3.selectByValue("LIMITED_WORKING");
         button.click(langprofEn);
         input.clear(englishinfield);
         input.type(language, "Deutch");
@@ -152,6 +145,7 @@ public class ProfDetails_LangEditable extends ElementActions {
 
         WebElement element4 = driver.findElement(editgerman);
         Actions action= new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element4).build().perform();
         button.click(editgerman);
         button.click(remove);
@@ -165,21 +159,23 @@ public class ProfDetails_LangEditable extends ElementActions {
         }
         return true;
     }
+
+
     public boolean cancelCreateLang() throws IOException {
 
-       // wait.presenceOfElement(newlan);
+
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
         action.moveToElement(element5).build().perform();
         button.click(newlan);
         button.click(language);
-        input.type(language, "English");
+        input.type(language, "Chinese");
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("NATIVE");
         button.click(cancel);
 
         try {
-            driver.findElement(english);
+            driver.findElement(chinese);
             CheckRecorder.setValue("build 1!D26", "failed");
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D26", "passed");
@@ -194,7 +190,7 @@ public class ProfDetails_LangEditable extends ElementActions {
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
-        scroll();
+        scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
         button.click(language);
@@ -202,9 +198,9 @@ public class ProfDetails_LangEditable extends ElementActions {
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("ELEMENTARY");
         Actions action2 = new Actions(driver);
-        WebElement element=driver.findElement(create);
-        action2.doubleClick(element).perform();
-        //button.click(create);
+        WebElement element6=driver.findElement(save);
+        action2.doubleClick(element6).perform();
+
 
 
         if(duplicateCount(enteredValue)>=2) {
@@ -220,15 +216,14 @@ public class ProfDetails_LangEditable extends ElementActions {
 
     public boolean validationLangfield() throws IOException {
 
-        // wait.presenceOfElement(newlan);
+
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
         action.moveToElement(element5).build().perform();
         button.click(newlan);
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("NATIVE");
-        button.click(create);
-        button.click(create);//need to be removed after the bug 152 is fixed
+        button.click(save);
 
         try {
             driver.findElement(langvalidation);
@@ -244,15 +239,15 @@ public class ProfDetails_LangEditable extends ElementActions {
 
     public boolean validationProffield() throws IOException {
 
-        // wait.presenceOfElement(newlan);
+
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
         action.moveToElement(element5).build().perform();
         button.click(newlan);
         button.click(language);
         input.type(language, "English");
-        button.click(create);
-        button.click(create);//need to be removed after the bug 152 is fixed
+        button.click(save);
+
 
         try {
             driver.findElement(profvalidation);
@@ -296,7 +291,12 @@ List<WebElement> elementslist= driver.findElements(langrow);
     }
         return duplicateCount;
 }
+    public void scrolluntilvisibility(){
+        WebElement element = driver.findElement(languageblock);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        wait.presenceOfElement(languageblock);
 
+    }
 class LangItem {
     public String enterlang;
     public String enterprof;

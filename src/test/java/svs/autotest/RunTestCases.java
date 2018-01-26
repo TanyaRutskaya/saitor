@@ -18,6 +18,7 @@ public class RunTestCases extends Global {
     ProfDetails_JobNotEditable profDetailsJobNotEditable =new ProfDetails_JobNotEditable();
     ProfDetails_LangEditable profDetailsLangEditable =new ProfDetails_LangEditable();
     ProfDetails_EducationEditable profDetails_educationEditable = new ProfDetails_EducationEditable();
+    ProfDetails_CertificationEditable profDetailsCertificationEditable=new ProfDetails_CertificationEditable();
 
     @BeforeClass
     public void setUpClass() throws IOException {
@@ -37,40 +38,47 @@ public class RunTestCases extends Global {
 
     @Test
    public void RunCases() throws IOException, InterruptedException {
-     //   loginValidCredentials.pageNavigation();
-      //  loginInvalidCredentials.IncorrectLogin();
-     //   loginEditInputValues.AbilityEdit();
-      //  profDetailsJobNotEditable.jobIneditable();
-     profDetailsLangEditable.newlang();
-//        profDetailsLangEditable.cancelEditProf();
-//        profDetailsLangEditable.langEdit();
-//        profDetailsLangEditable.langprofEdit();
-//        profDetailsLangEditable.cancelCreateLang();
-//        profDetailsLangEditable.removelang();
- //       profDetailsLangEditable.doubleclick();
-        profDetailsLangEditable.validationLangfield();
-//        profDetailsLangEditable.validationProffield();
-//        profDetails_educationEditable.addEdu();
-//       profDetails_educationEditable.langEditCancel();
-//       profDetails_educationEditable.editCalendarPeriod();
-//       profDetails_educationEditable.editEdu();
-//        profDetails_educationEditable.removeEdu();
-//        profDetails_educationEditable.cancelCreateEdu();
-//        profDetails_educationEditable.dateToEarlier();
-//        profDetails_educationEditable.dateAlphabetical();
-//       profDetails_educationEditable.validationeduname();
-//        profDetails_educationEditable.validationedudegree();
-//        profDetails_educationEditable.doubleclick();
-//       profDetails_educationEditable.morethan1block();
+        loginValidCredentials.pageNavigation();
+        loginInvalidCredentials.IncorrectLogin();
+        loginEditInputValues.AbilityEdit();
+
+        profDetailsJobNotEditable.jobIneditable();
+        profDetailsLangEditable.newlang();
+        profDetailsLangEditable.cancelEditProf();
+        profDetailsLangEditable.langEdit();
+        profDetailsLangEditable.langprofEdit();
+        profDetailsLangEditable.cancelCreateLang();
+        profDetailsLangEditable.removelang();
+        profDetailsLangEditable.doubleclick();
+       profDetailsLangEditable.validationLangfield();
+        profDetailsLangEditable.validationProffield();
+
+       profDetails_educationEditable.addEdu();
+        profDetails_educationEditable.langEditCancel();
+        profDetails_educationEditable.editCalendarPeriod();
+        profDetails_educationEditable.editEdu();
+        profDetails_educationEditable.removeEdu();
+        profDetails_educationEditable.cancelCreateEdu();
+        profDetails_educationEditable.dateToEarlier();
+        profDetails_educationEditable.dateAlphabetical();
+        profDetails_educationEditable.validationeduname();
+        profDetails_educationEditable.validationedudegree();
+        profDetails_educationEditable.doubleclick();
+        profDetails_educationEditable.morethan1block();
+
+
+       profDetailsCertificationEditable.addNew();
+
 
     }
 
     @AfterClass
     public void tearDownClass() {
-        //loginValidCredentials.navigate.closeDriver();
-        //loginInvalidCredentials.navigate.closeDriver();
-        //profDetailsJobNotEditable.navigate.closeDriver();
-        //profDetailsLangEditable.navigate.closeDriver();
+        loginValidCredentials.navigate.closeDriver();
+        loginInvalidCredentials.navigate.closeDriver();
+        profDetailsJobNotEditable.navigate.closeDriver();
+        profDetailsLangEditable.navigate.closeDriver();
+        profDetailsCertificationEditable.navigate.closeDriver();
 
     }
 
