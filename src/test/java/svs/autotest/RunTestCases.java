@@ -39,35 +39,51 @@ public class RunTestCases extends Global {
     @Test
    public void RunCases() throws IOException, InterruptedException {
         loginValidCredentials.pageNavigation();
-        loginInvalidCredentials.IncorrectLogin();
-        loginEditInputValues.AbilityEdit();
+        loginValidCredentials.loginSuccessfully();
+        loginValidCredentials.logout();
+     //   loginInvalidCredentials.pageNavigation();
+       // loginInvalidCredentials.invalidusername();
+      //  loginInvalidCredentials.invalidpass();
+       // loginInvalidCredentials.nousername();
+       // loginInvalidCredentials.nopass();
+//        loginEditInputValues.AbilityEdit();
 
-        profDetailsJobNotEditable.jobIneditable();
-        profDetailsLangEditable.newlang();
-        profDetailsLangEditable.cancelEditProf();
-        profDetailsLangEditable.langEdit();
-        profDetailsLangEditable.langprofEdit();
-        profDetailsLangEditable.cancelCreateLang();
-        profDetailsLangEditable.removelang();
-        profDetailsLangEditable.doubleclick();
-       profDetailsLangEditable.validationLangfield();
-        profDetailsLangEditable.validationProffield();
+//        profDetailsJobNotEditable.jobIneditable();
+//       profDetailsLangEditable.newlang();
+//        profDetailsLangEditable.cancelEditProf();
+//        profDetailsLangEditable.langEdit();
+//        profDetailsLangEditable.langprofEdit();
+//        profDetailsLangEditable.cancelCreateLang();
+//        profDetailsLangEditable.removelang();
+//        profDetailsLangEditable.doubleclick();
+//       profDetailsLangEditable.validationLangfield();
+//        profDetailsLangEditable.validationProffield();
 
-       profDetails_educationEditable.addEdu();
-        profDetails_educationEditable.langEditCancel();
-        profDetails_educationEditable.editCalendarPeriod();
-        profDetails_educationEditable.editEdu();
-        profDetails_educationEditable.removeEdu();
-        profDetails_educationEditable.cancelCreateEdu();
-        profDetails_educationEditable.dateToEarlier();
-        profDetails_educationEditable.dateAlphabetical();
-        profDetails_educationEditable.validationeduname();
-        profDetails_educationEditable.validationedudegree();
-        profDetails_educationEditable.doubleclick();
-        profDetails_educationEditable.morethan1block();
+//       profDetails_educationEditable.addEdu();
+//        profDetails_educationEditable.langEditCancel();
+//        profDetails_educationEditable.editCalendarPeriod();
+//        profDetails_educationEditable.editEdu();
+//        profDetails_educationEditable.removeEdu();
+//        profDetails_educationEditable.cancelCreateEdu();
+//        profDetails_educationEditable.dateToEarlier();
+//        profDetails_educationEditable.dateAlphabetical();
+//        profDetails_educationEditable.validationeduname();
+//        profDetails_educationEditable.validationedudegree();
+//        profDetails_educationEditable.doubleclick();
+//        profDetails_educationEditable.morethan1block();
 
 
-       profDetailsCertificationEditable.addNew();
+//       profDetailsCertificationEditable.addNew();
+//       profDetailsCertificationEditable.certEditCancel();
+//       profDetailsCertificationEditable.certCreateCancel();
+//       profDetailsCertificationEditable.editCalendarPeriod();
+//        profDetailsCertificationEditable.editCertnameIssuer();
+//        profDetailsCertificationEditable.morethan1block();
+//       profDetailsCertificationEditable.removeCert();
+//        profDetailsCertificationEditable.validationcertname();
+//        profDetailsCertificationEditable.validationcertissuer();
+//        profDetailsCertificationEditable.validationcertdate();
+
 
 
     }
@@ -78,7 +94,7 @@ public class RunTestCases extends Global {
         loginInvalidCredentials.navigate.closeDriver();
         profDetailsJobNotEditable.navigate.closeDriver();
         profDetailsLangEditable.navigate.closeDriver();
-        profDetailsCertificationEditable.navigate.closeDriver();
+    //    profDetailsCertificationEditable.navigate.closeDriver();
 
     }
 
