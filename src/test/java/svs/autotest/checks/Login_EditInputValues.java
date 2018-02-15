@@ -4,6 +4,7 @@ import com.seavus.common.elements.ElementActions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
 import svs.autotest.GoogleExcel.CheckRecorder;
 
 import java.io.IOException;
@@ -11,44 +12,38 @@ import java.io.IOException;
 
 public class Login_EditInputValues extends ElementActions {
 
-    By username = By.id("user_name");
-    By loginButton = By.id("login_button");
-    By welcomeLink = By.id("welcome_link");
-    By element = By.id("root");
-
-    public void AbilityEdit () throws IOException {
-        navigate.openBrowser();
-        navigate.maximizeBrowser();
-        navigate.to($("URL1"));
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-        navigate.to($("URL2"));
+    By login = By.name("authentication.inputForms.loginModel.username");
+    By pass = By.name("authentication.inputForms.loginModel.password");
+    By loginButton = By.xpath(".//div[@class='box-body']//span[text()='Login']");
+    By loggedinPerson = By.xpath("//div[@class='navbar-custom-menu']//li[@class = 'person-profile dropdown user user-menu false']");
 
 
-        if (!isAlertPresent()) {
-            wait.presenceOfElement(element, 15000);
-            if(driver.findElement(element) != null) {
-                CheckRecorder.setValue("build 1!D4", "passed");
-            } else {
-                CheckRecorder.setValue("build 1!D4", "failed");
-            }
+    public void abilityEdit () throws IOException {
 
-        } else {
-            CheckRecorder.setValue("build 1!D4", "failed");
+        wait.presenceOfElement(login);
+        button.click(login);
+        input.type(login,"Person.11");
+        button.click(pass);
+        input.type(pass, "123");
+        button.click(loginButton);
+        input.type(login, "\u0008");
+        button.click(loginButton);
+
+        try {
+            driver.findElement(loggedinPerson);
+            CheckRecorder.setValue("build 1!D7", "passed");
+        } catch (NoSuchElementException ex) {
+            CheckRecorder.setValue("build 1!D7", "failed");
         }
     }
 
 
 
 
-    //public void loginForm(final String user, final String pass) {
-
-        //input.type(username, user);
-        //input.type(password, pass);
-       // button.click(loginButton);
-        //TODO Validation that logged in
-        //validate.textContains(welcomeLink, "LoggedIn");
-   // }
+//    public void loginForm(final String user, final String pass) {
+//
+//        $I->executeJS('return $("#element").is(":focus")');
+//    }
 
     private boolean isAlertPresent()
     {

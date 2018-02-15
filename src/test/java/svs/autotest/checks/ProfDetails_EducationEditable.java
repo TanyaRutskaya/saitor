@@ -15,37 +15,31 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
     By edublock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]");
     By newedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[@title='Create new']");
-    By mslu = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//p[text()='MSLU']");
-    By msluedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//div[@class='col-xs-12 padding-left-none read-only-item-component' and .//p[text()='MSLU']]//button[@title='Edit']");
-    By schooledit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//div[@class='col-xs-12 padding-left-none' and .//p[text()='School']]//button[@title='Edit']");
-    By eduname = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//input[@name='cvComposition.inputForms.educationModel.name']");
-    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By edustart = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//input[@placeholder='Enter education start date']");
-    By eduend = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//input[@placeholder='Enter education end date(or expected)']");
-    By edudegree = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//input[@placeholder='Enter education degree']");
-    By harvard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//p[text()='Harvard']");
-    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//p[@class='title' and text()='School']");
-    By startdatevalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//span[text() = 'Education start year must be smaller than the end year']");
-    By calendarfrombutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//span[@aria-hidden='true']");
-    By y1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//td[@title='1999']");
-    By ye1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//input[@value='1999']");
-    By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//span[text()='Save']");
-    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//span[text()='Remove']");
-    By cancelnewedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//button[text()='Cancel']");
-    By endDateValidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Education']]//span[text() = 'Education to date is required']");
-    By edunamerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//*[text()='Education']]//span[text() = 'Education name is required']");
-    By edudegreerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//*[text()='Education']]//span[text() = 'Education degree is required']");
-    By edurow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='col-xs-12 padding-left-none read-only-item-component']");
+    By mslu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='MSLU']");
+    By msluedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='MSLU']]//button[@title='Edit']");
+    By schooledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='School']]//button[@title='Edit']");
+    By eduname = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@name='cvComposition.inputForms.educationModel.name']");
+    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
+    By edustart = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@placeholder='Enter education start date']");
+    By eduend = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@placeholder='Enter education end date(or expected)']");
+    By edudegree = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@placeholder='Enter education degree']");
+    By harvard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='Harvard']");
+    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[@class='title' and text()='School']");
+    By startdatevalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education start year must be smaller than the end year']");
+    By calendarfrombutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[@aria-hidden='true']");
+    By y1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//td[@title='1999']");
+    By ye1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@value='1999']");
+    By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text()='Save']");
+    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text()='Remove']");
+    By cancelnewedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[text()='Cancel']");
+    By endDateValidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education to date is required']");
+    By edunamerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education name is required']");
+    By edudegreerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education degree is required']");
+    By edurow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
 
     //Create a new education
 
     public boolean addEdu() throws IOException {
-        navigate.openBrowser();
-        navigate.maximizeBrowser();
-        navigate.to($("URL1"));
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-        navigate.to($("URL2"));
         wait.presenceOfElement(newedu);
 
         WebElement element = driver.findElement(newedu);
@@ -100,8 +94,10 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
         WebElement element2 = driver.findElement(msluedit);
         Actions action = new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element2).build().perform();
         button.click(msluedit);
+        scroll();
         button.click(calendarfrombutton);
         WebElement element4 = driver.findElement(y1999);
         Actions action2 = new Actions(driver);
@@ -132,6 +128,7 @@ public class ProfDetails_EducationEditable extends ElementActions {
         scrolluntilvisibility();
         action3.moveToElement(element3).build().perform();
        button.click(msluedit);
+       scroll();
         button.click(eduname);
         input.clear(eduname);
         input.type(eduname, "School");
@@ -151,8 +148,10 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
         WebElement element4 = driver.findElement(schooledit);
         Actions action4 = new Actions(driver);
+        scrolluntilvisibility();
         action4.moveToElement(element4).build().perform();
         button.click(schooledit);
+        scroll();
         button.click(remove);
         try {
             driver.findElement(school);
@@ -169,8 +168,10 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
         WebElement element5 = driver.findElement(newedu);
         Actions action = new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newedu);
+        scroll();
         button.click(eduname);
         input.type(eduname, "Harvard");
         button.click(edustart);
@@ -195,9 +196,10 @@ public class ProfDetails_EducationEditable extends ElementActions {
     public boolean dateToEarlier() throws IOException {
         WebElement element5 = driver.findElement(newedu);
         Actions action = new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newedu);
-        button.click(newedu);
+        scroll();
         button.click(eduname);
         input.type(eduname, "Harvard");
         button.click(edustart);
@@ -225,9 +227,10 @@ button.click(cancelnewedu);
     public boolean dateAlphabetical() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         Actions action = new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element6).build().perform();
         button.click(newedu);
-        button.click(newedu);
+        scroll();
         button.click(eduname);
         input.type(eduname, "Harvard");
         button.click(edustart);
@@ -249,9 +252,10 @@ button.click(cancelnewedu);
     public boolean validationeduname() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newedu);
         Actions action = new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element6).build().perform();
         button.click(newedu);
-        button.click(newedu);
+       scroll();
         button.click(edustart);
         input.type(edustart, "1999");
         button.click(edudegree);
@@ -273,8 +277,9 @@ button.click(cancelnewedu);
     public boolean validationedudegree() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newedu);
         Actions action = new Actions(driver);
+        scrolluntilvisibility();
         action.moveToElement(element6).build().perform();
-        button.click(newedu);
+        scroll();
         button.click(newedu);
         button.click(eduname);
         input.type(eduname, "Harvard");
@@ -306,8 +311,10 @@ button.click(cancelnewedu);
 
         WebElement element6 = driver.findElement(newedu);
         Actions action1 = new Actions(driver);
+        scrolluntilvisibility();
         action1.moveToElement(element6).build().perform();
         button.click(newedu);
+        scroll();
         button.click(eduname);
         input.type(eduname, enteredValue.title);
         button.click(edudegree);
@@ -400,7 +407,7 @@ button.click(cancelnewedu);
 
     public void scroll() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,125)", "");
+        jse.executeScript("window.scrollBy(0,-125)", "");
 
     }
     class EducationItem {

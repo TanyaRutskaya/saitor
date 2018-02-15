@@ -16,7 +16,7 @@ import java.io.IOException;
         By pass = By.name("authentication.inputForms.loginModel.password");
         By loginButton = By.xpath(".//div[@class='box-body']//span[text()='Login']");
         By logout = By.id("logout-btn");
-        By loggedinPerson = By.xpath("//div[@class='navbar-custom-menu']//li[@class = 'dropdown user user-menu person-profile false']");
+        By loggedinPerson = By.xpath("//div[@class='navbar-custom-menu']//li[@class = 'person-profile dropdown user user-menu false']");
 
         public void pageNavigation() throws IOException {
             navigate.openBrowser();
@@ -51,54 +51,14 @@ import java.io.IOException;
             } catch (NoSuchElementException ex) {
                 CheckRecorder.setValue("build 1!D10", "passed");
             }
-
+            input.clear(login);
+            input.clear(pass);
             return true;
+
         }
     }
-//            Alert alert = driver.switchTo().alert();
-//            alert.accept();
- //           navigate.to($("URL2"));
-
-//
-//            if (!isAlertPresent()) {
-//                wait.presenceOfElement(element, 15000);
-//                if(driver.findElement(element) != null) {
-//                    CheckRecorder.setValue("build 1!D4", "passed");
-//                } else {
-//                    CheckRecorder.setValue("build 1!D4", "failed");
-//                }
-//
-//            } else {
-//                CheckRecorder.setValue("build 1!D4", "failed");
-//            }
-  //      }
 
 
-
-
-
-
-   //     public void loginForm(final String user, final String pass) {
-
-            //input.type(username, user);
-            //input.type(password, pass);
-           // button.click(loginButton);
-            //TODO Validation that logged in
-            //validate.textContains(welcomeLink, "LoggedIn");
-       // }
-
-//        private boolean isAlertPresent()
-//        {
-//            try
-//            {
-//                driver.switchTo().alert();
-//                return true;
-//            }
-//            catch (NoAlertPresentException Ex)
-//            {
-//                return false;
-//            }
-//        }
 
 
 

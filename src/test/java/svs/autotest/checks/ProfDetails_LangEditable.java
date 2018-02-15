@@ -18,8 +18,8 @@ public class ProfDetails_LangEditable extends ElementActions {
 
 By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]");
     By newlan = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//button[@title='Create new']");
-    By editeng = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='col-xs-12 padding-left-none read-only-item-component' and .//p[text()='English']]//button[@title='Edit']");
-    By editgerman = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Deutch']]//button[@title='Edit']");
+    By editeng = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='English']]//button[@title='Edit']");
+    By editgerman = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Deutch']]//button[@title='Edit']");
     By language = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@name ='cvComposition.inputForms.languageModel.name']");
     By langprofEn = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//select");
     By langprofDe = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='subtitle' and text()='Limited Working']");
@@ -31,24 +31,18 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     By remove= By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Remove']");
     By cancel = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-default' and text()='Cancel']");
     By cancelEdition = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By langrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//div[@class='col-xs-12 padding-left-none']");
+    By langrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
     By langvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//span[text()='Language is required']");
     By profvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//span[text()='Proficiency is required']");
 
     public boolean newlang() throws IOException {
-        navigate.openBrowser();
-        navigate.maximizeBrowser();
-        navigate.to($("URL1"));
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-        navigate.to($("URL2"));
+
         wait.presenceOfElement(newlan);
-
-
         WebElement element = driver.findElement(newlan);
         Actions action = new Actions(driver);
        // scrolluntilvisibility();
             action.moveToElement(element).build().perform();
+            //scroll();
             button.click(newlan);
             button.click(language);
             input.type(language, "English");
@@ -74,7 +68,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element6 = driver.findElement(editeng);
         Actions action= new Actions(driver);
+      //  scrolluntilvisibility();
         action.moveToElement(element6).build().perform();
+      //  scroll();
         button.click(editeng);
         Select level3 = new Select(driver.findElement(langprofEn));
         level3.selectByValue("LIMITED_WORKING");
@@ -98,9 +94,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
             WebElement element2 = driver.findElement(editeng);
             Actions action2= new Actions(driver);
-           // scrolluntilvisibility();
+            //scrolluntilvisibility();
             action2.moveToElement(element2).build().perform();
             button.click(editeng);
+           // scroll();
             input.clear(englishinfield);
             input.type(language, "Deutch");
             button.click(save);
@@ -123,9 +120,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element3 = driver.findElement(editgerman);
         Actions action= new Actions(driver);
+       // scrolluntilvisibility();
         action.moveToElement(element3).build().perform();
         button.click(editgerman);
-
+      //  scroll();
 
         Select level2 = new Select(driver.findElement(langprofEn));
         level2.selectByValue("LIMITED_WORKING");
@@ -151,9 +149,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element4 = driver.findElement(editgerman);
         Actions action= new Actions(driver);
-       // scrolluntilvisibility();
+      //  scrolluntilvisibility();
         action.moveToElement(element4).build().perform();
         button.click(editgerman);
+     //   scroll();
         button.click(remove);
 
 
@@ -172,8 +171,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
+       // scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
+      //  scroll();
         button.click(language);
         input.type(language, "Chinese");
         Select level = new Select(driver.findElement(langprofEn));
@@ -196,9 +197,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
-       // scrolluntilvisibility();
+      //  scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
+     //   scroll();
         button.click(language);
         input.type(language, enteredValue.enterlang);
         Select level = new Select(driver.findElement(langprofEn));
@@ -225,8 +227,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
+    //    scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
+    //    scroll();
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("NATIVE");
         button.click(save);
@@ -248,8 +252,10 @@ button.click(cancel);
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
+      //  scrolluntilvisibility();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
+     //   scroll();
         button.click(language);
         input.type(language, "English");
         button.click(save);
