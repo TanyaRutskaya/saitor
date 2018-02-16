@@ -40,9 +40,10 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         wait.presenceOfElement(newlan);
         WebElement element = driver.findElement(newlan);
         Actions action = new Actions(driver);
-       // scrolluntilvisibility();
-            action.moveToElement(element).build().perform();
-            //scroll();
+        scrolluntilvisibility();
+        scroll();
+        action.moveToElement(element).build().perform();
+
             button.click(newlan);
             button.click(language);
             input.type(language, "English");

@@ -17,12 +17,12 @@ public class ProfDetails_EducationEditable extends ElementActions {
     By newedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[@title='Create new']");
     By mslu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='MSLU']");
     By msluedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='MSLU']]//button[@title='Edit']");
-    By schooledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='School']]//button[@title='Edit']");
+    By editBSUIR = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='BSUIR']]//button[@title='Edit']");
     By eduname = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@name='cvComposition.inputForms.educationModel.name']");
     By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By edustart = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@placeholder='Enter education start date']");
-    By eduend = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@placeholder='Enter education end date(or expected)']");
-    By edudegree = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@placeholder='Enter education degree']");
+    By edustart = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[input[@name='cvComposition.inputForms.educationModel.fromDate']]//input");
+    By eduend = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[input[@name='cvComposition.inputForms.educationModel.toDate']]//input");
+    By edudegree = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[input[@name='cvComposition.inputForms.educationModel.degree']]//input");
     By harvard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='Harvard']");
     By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[@class='title' and text()='School']");
     By startdatevalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education start year must be smaller than the end year']");
@@ -141,24 +141,78 @@ public class ProfDetails_EducationEditable extends ElementActions {
         }
         return true;
     }
+//verify if there is an ability to add > 2 educations
 
+
+    public boolean morethan1block() throws IOException {
+        WebElement element6 = driver.findElement(newedu);
+        Actions action1 = new Actions(driver);
+
+        EducationItem enteredValue = new EducationItem();
+        enteredValue.title = "BSUIR";
+        enteredValue.degree = "magistr";
+        String startEdu = "1999";
+        String endEdu = "2000";
+        enteredValue.period = startEdu + " - " + endEdu;
+
+        int repeat = 3;
+
+        for (int i = 0; i < repeat; i++ ) {
+            action1.moveToElement(element6).build().perform();
+            button.click(newedu);
+            button.click(eduname);
+            input.type(eduname,  enteredValue.title);
+            button.click(edudegree);
+            input.type(edudegree, enteredValue.degree);
+            button.click(edustart);
+            input.type(edustart, startEdu);
+            button.click(eduend);
+            input.type(eduend, endEdu);
+            button.click(save);
+            scrolluntilvisibility();
+            scroll();
+
+        }
+        System.out.print("repeat counted = " + " " +duplicateCount(enteredValue));
+        if(repeat==duplicateCount(enteredValue)) {
+
+            CheckRecorder.setValue("build 1!D39", "passed");
+        } else  {
+            CheckRecorder.setValue("build 1!D39", "failed");
+        }
+        return true;
+    }
 //remove education
 
     public boolean removeEdu() throws IOException {
+        WebElement element6 = driver.findElement(newedu);
 
-        WebElement element4 = driver.findElement(schooledit);
+        EducationItem enteredValue = new EducationItem();
+        enteredValue.title = "BSUIR";
+        enteredValue.degree = "magistr";
+        String startEdu = "1999";
+        String endEdu = "2000";
+        enteredValue.period = startEdu + " - " + endEdu;
+
         Actions action4 = new Actions(driver);
-        scrolluntilvisibility();
-        action4.moveToElement(element4).build().perform();
-        button.click(schooledit);
-        scroll();
-        button.click(remove);
-        try {
-            driver.findElement(school);
+
+        int repeatdelete = 3;
+
+        for (int a = 0; a < repeatdelete; a++ ) {
+            WebElement element4 = driver.findElement(editBSUIR);
+            action4.moveToElement(element4).build().perform();
+            button.click(editBSUIR);
+            button.click(remove);
+            scrolluntilvisibility();
+        }
+
+        if(repeatdelete==duplicateCount(enteredValue)) {
+
             CheckRecorder.setValue("build 1!D38", "failed");
-        } catch (NoSuchElementException ex) {
+        } else  {
             CheckRecorder.setValue("build 1!D38", "passed");
         }
+
         return true;
     }
 
@@ -337,45 +391,7 @@ button.click(cancelnewedu);
         return true;
     }
 
-//verify if there is an ability to add > 2 educations
 
-
-    public boolean morethan1block() throws IOException {
-        WebElement element6 = driver.findElement(newedu);
-        Actions action1 = new Actions(driver);
-
-        EducationItem enteredValue = new EducationItem();
-        enteredValue.title = "BSUIR";
-        enteredValue.degree = "magistr";
-        String startEdu = "1999";
-        String endEdu = "2000";
-        enteredValue.period = startEdu + " - " + endEdu;
-
-        int repeat = 3;
-
-    for (int i = 0; i < repeat; i++ ) {
-        action1.moveToElement(element6).build().perform();
-        button.click(newedu);
-        button.click(eduname);
-        input.type(eduname,  enteredValue.title);
-        button.click(edudegree);
-        input.type(edudegree, enteredValue.degree);
-        button.click(edustart);
-        input.type(edustart, startEdu);
-        button.click(eduend);
-        input.type(eduend, endEdu);
-        button.click(save);
-
-    }
-    System.out.print("repeat counted = " + " " +duplicateCount(enteredValue));
-        if(repeat==duplicateCount(enteredValue)) {
-
-            CheckRecorder.setValue("build 1!D39", "passed");
-        } else  {
-            CheckRecorder.setValue("build 1!D39", "failed");
-        }
-    return true;
-    }
 
     public int duplicateCount(EducationItem item) {
         List<WebElement> elementslist= driver.findElements(edurow);
