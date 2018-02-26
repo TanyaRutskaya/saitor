@@ -21,8 +21,6 @@ public class RunTestCases extends Global {
     ProfDetails_CertificationEditable profDetailsCertificationEditable = new ProfDetails_CertificationEditable();
     ProfDetails_TrainingEditable profDetailsTrainingEditable = new ProfDetails_TrainingEditable();
 
-
-
     @BeforeMethod
     public void setUpMethod() {
 
@@ -44,7 +42,6 @@ public class RunTestCases extends Global {
         loginInvalidCredentials.nopass();
         loginEditInputValues.abilityEdit();
 
-
     }
 
         @Test
@@ -61,7 +58,7 @@ public class RunTestCases extends Global {
         profDetailsLangEditable.cancelCreateLang();
         profDetailsLangEditable.removelang();
         profDetailsLangEditable.doubleclick();
-       profDetailsLangEditable.validationLangfield();
+        profDetailsLangEditable.validationLangfield();
         profDetailsLangEditable.validationProffield();
     }
 
@@ -99,10 +96,10 @@ public void Certification() throws IOException, InterruptedException {
    }
     @Test
     public void Training() throws IOException, InterruptedException {
-       profDetailsTrainingEditable.addNew();
-       profDetailsTrainingEditable.EditCancel();
-       profDetailsTrainingEditable.CreateCancel();
-       profDetailsTrainingEditable.editTrainingName();
+        profDetailsTrainingEditable.addNew();
+        profDetailsTrainingEditable.EditCancel();
+        profDetailsTrainingEditable.CreateCancel();
+        profDetailsTrainingEditable.editTrainingName();
         profDetailsTrainingEditable.morethan1block();
         profDetailsTrainingEditable.removeTraing();
         profDetailsTrainingEditable.validationTrainingname();
@@ -121,6 +118,7 @@ public void Certification() throws IOException, InterruptedException {
         profDetailsJobNotEditable.navigate.closeDriver();
         profDetailsLangEditable.navigate.closeDriver();
         profDetailsCertificationEditable.navigate.closeDriver();
+        profDetailsTrainingEditable.navigate.closeDriver();
 
     }
 

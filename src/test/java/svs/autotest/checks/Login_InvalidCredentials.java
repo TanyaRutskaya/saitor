@@ -92,6 +92,4 @@ public class Login_InvalidCredentials extends ElementActions {
         input.clear(login);
         return true;
     }
-
-
 }

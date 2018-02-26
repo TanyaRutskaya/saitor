@@ -41,7 +41,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
     public boolean addEdu() throws IOException {
         wait.presenceOfElement(newedu);
-
         WebElement element = driver.findElement(newedu);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -127,8 +126,8 @@ public class ProfDetails_EducationEditable extends ElementActions {
         Actions action3 = new Actions(driver);
         scrolluntilvisibility();
         action3.moveToElement(element3).build().perform();
-       button.click(msluedit);
-       scroll();
+        button.click(msluedit);
+        scroll();
         button.click(eduname);
         input.clear(eduname);
         input.type(eduname, "School");
@@ -143,20 +142,16 @@ public class ProfDetails_EducationEditable extends ElementActions {
     }
 //verify if there is an ability to add > 2 educations
 
-
     public boolean morethan1block() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         Actions action1 = new Actions(driver);
-
         EducationItem enteredValue = new EducationItem();
         enteredValue.title = "BSUIR";
         enteredValue.degree = "magistr";
         String startEdu = "1999";
         String endEdu = "2000";
         enteredValue.period = startEdu + " - " + endEdu;
-
         int repeat = 3;
-
         for (int i = 0; i < repeat; i++ ) {
             action1.moveToElement(element6).build().perform();
             button.click(newedu);
@@ -186,14 +181,12 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
     public boolean removeEdu() throws IOException {
         WebElement element6 = driver.findElement(newedu);
-
         EducationItem enteredValue = new EducationItem();
         enteredValue.title = "BSUIR";
         enteredValue.degree = "magistr";
         String startEdu = "1999";
         String endEdu = "2000";
         enteredValue.period = startEdu + " - " + endEdu;
-
         Actions action4 = new Actions(driver);
 
         int repeatdelete = 3;
@@ -218,8 +211,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
 
     //check the "Cancel" at "Create new" mode
     public boolean cancelCreateEdu() throws IOException {
-
-
         WebElement element5 = driver.findElement(newedu);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -263,16 +254,13 @@ public class ProfDetails_EducationEditable extends ElementActions {
         button.click(eduend);
         input.type(eduend, "1999");
         button.click(save);
-
-
-
         try {
             driver.findElement(startdatevalidation);
             CheckRecorder.setValue("build 1!D35", "passed");
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D35", "failed");
         }
-button.click(cancelnewedu);
+        button.click(cancelnewedu);
         return true;
     }
 
@@ -309,7 +297,7 @@ button.click(cancelnewedu);
         scrolluntilvisibility();
         action.moveToElement(element6).build().perform();
         button.click(newedu);
-       scroll();
+        scroll();
         button.click(edustart);
         input.type(edustart, "1999");
         button.click(edudegree);
@@ -342,8 +330,6 @@ button.click(cancelnewedu);
         button.click(eduend);
         input.type(eduend, "2000");
         button.click(save);
-
-
         try {
 
             driver.findElement(edudegreerequired);
@@ -354,7 +340,9 @@ button.click(cancelnewedu);
         button.click(cancelnewedu);
         return true;
     }
+
 //check the reaction to the double click
+
     public boolean doubleclick() throws IOException {
         EducationItem enteredValue = new EducationItem();
         enteredValue.title = "Harvard";
@@ -362,7 +350,6 @@ button.click(cancelnewedu);
         String startEdu = "1999";
         String endEdu = "2003";
         enteredValue.period = startEdu + " - " + endEdu;
-
         WebElement element6 = driver.findElement(newedu);
         Actions action1 = new Actions(driver);
         scrolluntilvisibility();
@@ -380,8 +367,6 @@ button.click(cancelnewedu);
         Actions action2 = new Actions(driver);
         WebElement element=driver.findElement(save);
         action2.doubleClick(element).perform();
-
-
         if(duplicateCount(enteredValue)>=2) {
 
             CheckRecorder.setValue("build 1!D42", "failed");
@@ -391,8 +376,6 @@ button.click(cancelnewedu);
         return true;
     }
 
-
-
     public int duplicateCount(EducationItem item) {
         List<WebElement> elementslist= driver.findElements(edurow);
         List<EducationItem> educationItems = new ArrayList<>();
@@ -400,17 +383,13 @@ button.click(cancelnewedu);
         for(int n = 0; n < elementslist.size(); n++) {
             WebElement webElement = elementslist.get(n);
             EducationItem educationItem = new EducationItem();
-
             educationItem.title = webElement.findElement(By.className("title")).getText();
             educationItem.degree = webElement.findElement(By.className("secondary-title")).getText();
             educationItem.period = webElement.findElement(By.className("date")).getText();
-
             educationItems.add(educationItem);
-
         }
 
         int duplicateCount = 0;
-
         for(int k = 0; k < educationItems.size(); k++){
             if(educationItems.get(k).title.equals(item.title)
                     && educationItems.get(k).degree.equals(item.degree)
@@ -424,7 +403,6 @@ button.click(cancelnewedu);
     public void scroll() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,-125)", "");
-
     }
     class EducationItem {
         public String title;

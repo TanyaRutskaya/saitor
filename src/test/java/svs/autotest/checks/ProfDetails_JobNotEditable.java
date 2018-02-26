@@ -19,8 +19,6 @@ public class ProfDetails_JobNotEditable extends ElementActions {
     By edit = By.xpath("//div[@class='col-xs-12 child-component' and .//h5[text()='Job Position:']]//button[@title='Edit']");
 
     public boolean jobIneditable() throws IOException {
-
-
         try {
             driver.findElement(edit);
             CheckRecorder.setValue("build 1!D21", "failed");

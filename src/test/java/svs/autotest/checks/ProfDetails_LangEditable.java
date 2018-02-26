@@ -25,8 +25,8 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     By langprofDe = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='subtitle' and text()='Limited Working']");
     By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Save']");
     By german = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Deutch']");
-   By chinese = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Chinese']");
-    By english = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='English']");
+    By chinese = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Chinese']");
+   // By english = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='English']");
     By englishinfield=By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@value='English']");
     By remove= By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Remove']");
     By cancel = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-default' and text()='Cancel']");
@@ -69,9 +69,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element6 = driver.findElement(editeng);
         Actions action= new Actions(driver);
-      //  scrolluntilvisibility();
+        scrolluntilvisibility();
+        scroll();
         action.moveToElement(element6).build().perform();
-      //  scroll();
         button.click(editeng);
         Select level3 = new Select(driver.findElement(langprofEn));
         level3.selectByValue("LIMITED_WORKING");
@@ -79,7 +79,6 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         input.clear(englishinfield);
         input.type(language, "Deutch");
         button.click(cancelEdition);
-
         try {
             driver.findElement(langprofDe);
             CheckRecorder.setValue("build 1!D27", "failed");
@@ -95,14 +94,13 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
             WebElement element2 = driver.findElement(editeng);
             Actions action2= new Actions(driver);
-            //scrolluntilvisibility();
+            scrolluntilvisibility();
+            scroll();
             action2.moveToElement(element2).build().perform();
             button.click(editeng);
-           // scroll();
             input.clear(englishinfield);
             input.type(language, "Deutch");
             button.click(save);
-
             try {
 
                 driver.findElement(german);
@@ -114,31 +112,23 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
             return true;
         }
 
-
 //checking the adjustment of the  language level
 
     public boolean langprofEdit() throws IOException {
 
         WebElement element3 = driver.findElement(editgerman);
         Actions action= new Actions(driver);
-       // scrolluntilvisibility();
         action.moveToElement(element3).build().perform();
         button.click(editgerman);
-      //  scroll();
-
         Select level2 = new Select(driver.findElement(langprofEn));
         level2.selectByValue("LIMITED_WORKING");
         button.click(save);
-
-
         try {
             driver.findElement(langprofDe);
             CheckRecorder.setValue("build 1!D24", "passed");
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D24", "failed");
         }
-
-
         return true;
     }
 
@@ -150,13 +140,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         WebElement element4 = driver.findElement(editgerman);
         Actions action= new Actions(driver);
-      //  scrolluntilvisibility();
         action.moveToElement(element4).build().perform();
         button.click(editgerman);
-     //   scroll();
         button.click(remove);
-
-
         try {
             driver.findElement(german);
             CheckRecorder.setValue("build 1!D25", "failed");
@@ -168,14 +154,12 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
 
     public boolean cancelCreateLang() throws IOException {
-
-
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
-       // scrolluntilvisibility();
+        scrolluntilvisibility();
+        scroll();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
-      //  scroll();
         button.click(language);
         input.type(language, "Chinese");
         Select level = new Select(driver.findElement(langprofEn));
@@ -195,13 +179,12 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         LangItem enteredValue = new LangItem();
         enteredValue.enterlang = "Italian";
         enteredValue.enterprof= "Elementary";
-
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
-      //  scrolluntilvisibility();
+        scrolluntilvisibility();
+        scroll();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
-     //   scroll();
         button.click(language);
         input.type(language, enteredValue.enterlang);
         Select level = new Select(driver.findElement(langprofEn));
@@ -209,11 +192,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         Actions action2 = new Actions(driver);
         WebElement element6=driver.findElement(save);
         action2.doubleClick(element6).perform();
-
-
-
         if(duplicateCount(enteredValue)>=2) {
-
             CheckRecorder.setValue("build 1!D28", "failed");
         } else  {
             CheckRecorder.setValue("build 1!D28", "passed");
@@ -225,24 +204,22 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
     public boolean validationLangfield() throws IOException {
 
-
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
-    //    scrolluntilvisibility();
+        scrolluntilvisibility();
+        scroll();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
-    //    scroll();
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("NATIVE");
         button.click(save);
-
         try {
             driver.findElement(langvalidation);
             CheckRecorder.setValue("build 1!D29", "passed");
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D29", "failed");
         }
-button.click(cancel);
+        button.click(cancel);
         return true;
     }
 
@@ -253,15 +230,13 @@ button.click(cancel);
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
-      //  scrolluntilvisibility();
+        scrolluntilvisibility();
+        scroll();
         action.moveToElement(element5).build().perform();
         button.click(newlan);
-     //   scroll();
         button.click(language);
         input.type(language, "English");
         button.click(save);
-
-
         try {
             driver.findElement(profvalidation);
             CheckRecorder.setValue("build 1!D30", "passed");
@@ -278,17 +253,14 @@ public void scroll(){
 }
 
  public int duplicateCount(LangItem item) {
-List<WebElement> elementslist= driver.findElements(langrow);
-  List <LangItem> langItems = new ArrayList<>();
+    List<WebElement> elementslist= driver.findElements(langrow);
+    List <LangItem> langItems = new ArrayList<>();
 
         for(int n = 0; n < elementslist.size(); n++) {
         WebElement webElement = elementslist.get(n);
         LangItem langItem = new LangItem();
-
         langItem.enterlang = webElement.findElement(By.className("title")).getText();
         langItem.enterprof = webElement.findElement(By.className("subtitle")).getText();
-
-
         langItems.add(langItem);
 
     }

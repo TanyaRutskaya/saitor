@@ -37,14 +37,6 @@ public class Login_EditInputValues extends ElementActions {
         }
     }
 
-
-
-
-//    public void loginForm(final String user, final String pass) {
-//
-//        $I->executeJS('return $("#element").is(":focus")');
-//    }
-
     private boolean isAlertPresent()
     {
         try
