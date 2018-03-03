@@ -1,4 +1,4 @@
-package svs.autotest.GoogleExcel;
+package com.seavus.saitor.GoogleExcel;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -43,7 +43,6 @@ public class CheckRecorder {
      */
     private static final JsonFactory JSON_FACTORY =
             JacksonFactory.getDefaultInstance();
-
     /**
      * Global instance of the HTTP transport.
      */
@@ -90,8 +89,7 @@ public class CheckRecorder {
                         .build();
         Credential credential = new AuthorizationCodeInstalledApp(
                 flow, new LocalServerReceiver()).authorize("user");
-        System.out.println(
-                "Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
+        System.out.println("Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
         return credential;
     }
 
@@ -126,6 +124,4 @@ public class CheckRecorder {
                         .execute();
 
     }
-
-
 }

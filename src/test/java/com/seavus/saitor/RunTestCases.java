@@ -1,36 +1,33 @@
-package svs.autotest;
+package com.seavus.saitor;
 
+import com.seavus.saitor.checks.*;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.seavus.common.Global;
-//import svs.autotest.GoogleExcel.FileRecord;
 import svs.autotest.checks.*;
-
 import java.io.IOException;
 
+
 public class RunTestCases extends Global {
-    Login_ValidCredentials loginValidCredentials = new Login_ValidCredentials();
-    Login_InvalidCredentials loginInvalidCredentials = new Login_InvalidCredentials();
-    Login_EditInputValues loginEditInputValues = new Login_EditInputValues();
-    ProfDetails_JobNotEditable profDetailsJobNotEditable = new ProfDetails_JobNotEditable();
-    ProfDetails_LangEditable profDetailsLangEditable = new ProfDetails_LangEditable();
-    ProfDetails_EducationEditable profDetails_educationEditable = new ProfDetails_EducationEditable();
-    ProfDetails_CertificationEditable profDetailsCertificationEditable = new ProfDetails_CertificationEditable();
-    ProfDetails_TrainingEditable profDetailsTrainingEditable = new ProfDetails_TrainingEditable();
 
-    @BeforeMethod
-    public void setUpMethod() {
+    LoginValidCredentials loginValidCredentials = new LoginValidCredentials();
+    LoginInvalidCredentials loginInvalidCredentials = new LoginInvalidCredentials();
+    LoginEditInputValues loginEditInputValues = new LoginEditInputValues();
+    ProfDetailsJobNotEditable profDetailsJobNotEditable = new ProfDetailsJobNotEditable();
+    ProfDetailsLangEditable profDetailsLangEditable = new ProfDetailsLangEditable();
+    ProfDetailsEducationEditable profDetails_educationEditable = new ProfDetailsEducationEditable();
+    ProfDetailsCertificationEditable profDetailsCertificationEditable = new ProfDetailsCertificationEditable();
+    ProfDetailsTrainingEditable profDetailsTrainingEditable = new ProfDetailsTrainingEditable();
 
-    }
 
     @BeforeTest
     public void setUpTest() throws IOException {
+
         loginValidCredentials.pageNavigation();
         loginValidCredentials.loginSuccessfully();
     }
+
 
     @Test
     public void LoginTest() throws IOException, InterruptedException {
@@ -41,16 +38,19 @@ public class RunTestCases extends Global {
         loginInvalidCredentials.nousername();
         loginInvalidCredentials.nopass();
         loginEditInputValues.abilityEdit();
-
     }
 
-        @Test
-   public void Job() throws IOException, InterruptedException {
+
+    @Test
+    public void Job() throws IOException, InterruptedException {
 
         profDetailsJobNotEditable.jobIneditable();
     }
+
+
     @Test
     public void Language() throws IOException, InterruptedException {
+
         profDetailsLangEditable.newlang();
         profDetailsLangEditable.cancelEditProf();
         profDetailsLangEditable.langEdit();
@@ -62,8 +62,10 @@ public class RunTestCases extends Global {
         profDetailsLangEditable.validationProffield();
     }
 
+
     @Test
     public void Education() throws IOException, InterruptedException {
+
         profDetails_educationEditable.addEdu();
         profDetails_educationEditable.langEditCancel();
         profDetails_educationEditable.editCalendarPeriod();
@@ -77,8 +79,10 @@ public class RunTestCases extends Global {
         profDetails_educationEditable.morethan1block();
         profDetails_educationEditable.removeEdu();
 }
+
+
     @Test
-public void Certification() throws IOException, InterruptedException {
+    public void Certification() throws IOException, InterruptedException {
 
         profDetailsCertificationEditable.addNew();
         profDetailsCertificationEditable.certEditCancel();
@@ -94,8 +98,11 @@ public void Certification() throws IOException, InterruptedException {
         profDetailsCertificationEditable.dateExceeds();
         profDetailsCertificationEditable.doubleclick();
    }
+
+
     @Test
     public void Training() throws IOException, InterruptedException {
+
         profDetailsTrainingEditable.addNew();
         profDetailsTrainingEditable.EditCancel();
         profDetailsTrainingEditable.CreateCancel();
@@ -111,8 +118,10 @@ public void Certification() throws IOException, InterruptedException {
         profDetailsTrainingEditable.doubleclick();
     }
 
+
     @AfterClass
     public void tearDownClass() {
+
         loginValidCredentials.navigate.closeDriver();
         loginInvalidCredentials.navigate.closeDriver();
         profDetailsJobNotEditable.navigate.closeDriver();
@@ -121,5 +130,4 @@ public void Certification() throws IOException, InterruptedException {
         profDetailsTrainingEditable.navigate.closeDriver();
 
     }
-
 }

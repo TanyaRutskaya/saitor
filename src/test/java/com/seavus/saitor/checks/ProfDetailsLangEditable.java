@@ -1,20 +1,16 @@
-package svs.autotest.checks;
+package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
 import org.openqa.selenium.support.ui.Select;
-import svs.autotest.GoogleExcel.CheckRecorder;
-
+import com.seavus.saitor.GoogleExcel.CheckRecorder;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProfDetails_LangEditable extends ElementActions {
+public class ProfDetailsLangEditable extends ElementActions {
 
 By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]");
     By newlan = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//button[@title='Create new']");
@@ -26,7 +22,6 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Save']");
     By german = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Deutch']");
     By chinese = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Chinese']");
-   // By english = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='English']");
     By englishinfield=By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@value='English']");
     By remove= By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Remove']");
     By cancel = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-default' and text()='Cancel']");
@@ -34,6 +29,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     By langrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
     By langvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//span[text()='Language is required']");
     By profvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//span[text()='Proficiency is required']");
+
 
     public boolean newlang() throws IOException {
 
@@ -60,11 +56,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         }
         button.click(cancel);
         return true;
-
     }
 
 //Cancel check in Edit mode
-
     public boolean cancelEditProf() throws IOException {
 
         WebElement element6 = driver.findElement(editeng);
@@ -89,8 +83,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     }
 
     // check the adjustment of the language
-
-        public boolean langEdit() throws IOException {
+    public boolean langEdit() throws IOException {
 
             WebElement element2 = driver.findElement(editeng);
             Actions action2= new Actions(driver);
@@ -113,7 +106,6 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         }
 
 //checking the adjustment of the  language level
-
     public boolean langprofEdit() throws IOException {
 
         WebElement element3 = driver.findElement(editgerman);
@@ -131,9 +123,6 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         }
         return true;
     }
-
-
-
 
 
     public boolean removelang() throws IOException {
@@ -175,6 +164,8 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         return true;
     }
+
+
     public boolean doubleclick() throws IOException {
         LangItem enteredValue = new LangItem();
         enteredValue.enterlang = "Italian";
@@ -201,7 +192,6 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     }
 
     //Language field validation check
-
     public boolean validationLangfield() throws IOException {
 
         WebElement element5 = driver.findElement(newlan);
@@ -224,9 +214,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     }
 
     //Level filed validation check
-
     public boolean validationProffield() throws IOException {
-
 
         WebElement element5 = driver.findElement(newlan);
         Actions action= new Actions(driver);
@@ -247,12 +235,14 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         return true;
     }
 
-public void scroll(){
+
+    public void scroll(){
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("window.scrollBy(0,-150)", "");
 }
 
- public int duplicateCount(LangItem item) {
+
+    public int duplicateCount(LangItem item) {
     List<WebElement> elementslist= driver.findElements(langrow);
     List <LangItem> langItems = new ArrayList<>();
 
@@ -276,13 +266,16 @@ public void scroll(){
     }
         return duplicateCount;
 }
-    public void scrolluntilvisibility(){
+
+
+public void scrolluntilvisibility(){
         WebElement element = driver.findElement(languageblock);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         wait.presenceOfElement(newlan);
-
     }
-class LangItem {
+
+
+    class LangItem {
     public String enterlang;
     public String enterprof;
 

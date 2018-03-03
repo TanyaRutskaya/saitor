@@ -1,16 +1,13 @@
-package svs.autotest.checks;
+package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
-import svs.autotest.GoogleExcel.CheckRecorder;
-
+import com.seavus.saitor.GoogleExcel.CheckRecorder;
 import java.io.IOException;
 
 
-public class Login_InvalidCredentials extends ElementActions {
+public class LoginInvalidCredentials extends ElementActions {
 
     By login = By.name("authentication.inputForms.loginModel.username");
     By pass = By.name("authentication.inputForms.loginModel.password");
@@ -20,8 +17,8 @@ public class Login_InvalidCredentials extends ElementActions {
     By noUsernameValidation = By.xpath(".//div[@class='box-body']//span[text()='Username is required']");
 
 
-
     public boolean invalidusername() throws IOException {
+
         wait.presenceOfElement(login);
         button.click(login);
         input.type(login,"Person.2");
@@ -35,10 +32,13 @@ public class Login_InvalidCredentials extends ElementActions {
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D5", "failed");
         }
+
         input.clear(pass);
         input.clear(login);
         return true;
     }
+
+
     public boolean invalidpass() throws IOException {
         button.click(login);
         input.type(login,"Person.1");
@@ -52,6 +52,7 @@ public class Login_InvalidCredentials extends ElementActions {
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D6", "failed");
         }
+
         input.clear(login);
         input.clear(pass);
         return true;
@@ -70,12 +71,13 @@ public class Login_InvalidCredentials extends ElementActions {
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D8", "failed");
         }
+
         input.clear(pass);
         input.clear(login);
         return true;
     }
-// no password validation check
 
+    // no password validation check
     public boolean nopass() throws IOException {
         button.click(login);
         input.type(login,"Person.2");
@@ -88,6 +90,7 @@ public class Login_InvalidCredentials extends ElementActions {
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D9", "failed");
         }
+
         input.clear(pass);
         input.clear(login);
         return true;

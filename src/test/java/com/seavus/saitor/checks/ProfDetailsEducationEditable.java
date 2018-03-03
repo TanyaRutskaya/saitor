@@ -1,17 +1,16 @@
-package svs.autotest.checks;
+package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
+import com.seavus.saitor.GoogleExcel.CheckRecorder;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
-import svs.autotest.GoogleExcel.CheckRecorder;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProfDetails_EducationEditable extends ElementActions {
+public class ProfDetailsEducationEditable extends ElementActions {
 
     By edublock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]");
     By newedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[@title='Create new']");
@@ -38,7 +37,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
     By edurow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
 
     //Create a new education
-
     public boolean addEdu() throws IOException {
         wait.presenceOfElement(newedu);
         WebElement element = driver.findElement(newedu);
@@ -88,7 +86,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
     }
 
 //Check  edit "From"/"To" from the "Calendar" button
-
     public boolean editCalendarPeriod() throws IOException {
 
         WebElement element2 = driver.findElement(msluedit);
@@ -140,8 +137,8 @@ public class ProfDetails_EducationEditable extends ElementActions {
         }
         return true;
     }
-//verify if there is an ability to add > 2 educations
 
+//verify if there is an ability to add > 2 educations
     public boolean morethan1block() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         Actions action1 = new Actions(driver);
@@ -177,8 +174,8 @@ public class ProfDetails_EducationEditable extends ElementActions {
         }
         return true;
     }
-//remove education
 
+//remove education
     public boolean removeEdu() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         EducationItem enteredValue = new EducationItem();
@@ -237,7 +234,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
     }
 
 // check the disability to set the date "To" earlier than "From"
-
     public boolean dateToEarlier() throws IOException {
         WebElement element5 = driver.findElement(newedu);
         Actions action = new Actions(driver);
@@ -265,7 +261,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
     }
 
     //check the disabilty to set String values at "From"/"To"
-
     public boolean dateAlphabetical() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         Actions action = new Actions(driver);
@@ -290,6 +285,7 @@ public class ProfDetails_EducationEditable extends ElementActions {
         }
         return true;
     }
+
 //check the validation for the field EducationName
     public boolean validationeduname() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newedu);
@@ -315,6 +311,7 @@ public class ProfDetails_EducationEditable extends ElementActions {
         button.click(cancelnewedu);
         return true;
     }
+
 //check the validation for the field EducationDegree
     public boolean validationedudegree() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newedu);
@@ -342,7 +339,6 @@ public class ProfDetails_EducationEditable extends ElementActions {
     }
 
 //check the reaction to the double click
-
     public boolean doubleclick() throws IOException {
         EducationItem enteredValue = new EducationItem();
         enteredValue.title = "Harvard";
@@ -376,6 +372,7 @@ public class ProfDetails_EducationEditable extends ElementActions {
         return true;
     }
 
+
     public int duplicateCount(EducationItem item) {
         List<WebElement> elementslist= driver.findElements(edurow);
         List<EducationItem> educationItems = new ArrayList<>();
@@ -400,19 +397,23 @@ public class ProfDetails_EducationEditable extends ElementActions {
         return duplicateCount;
     }
 
+
     public void scroll() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,-125)", "");
     }
+
+
     class EducationItem {
         public String title;
         public String degree;
         public String period;
     }
+
+
     public void scrolluntilvisibility(){
         WebElement element = driver.findElement(edublock);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         wait.presenceOfElement(edublock);
-
     }
 }

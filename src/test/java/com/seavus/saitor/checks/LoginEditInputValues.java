@@ -1,16 +1,15 @@
-package svs.autotest.checks;
+package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
-import org.openqa.selenium.Alert;
+import com.seavus.saitor.GoogleExcel.CheckRecorder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
-import svs.autotest.GoogleExcel.CheckRecorder;
 
 import java.io.IOException;
 
 
-public class Login_EditInputValues extends ElementActions {
+public class LoginEditInputValues extends ElementActions {
 
     By login = By.name("authentication.inputForms.loginModel.username");
     By pass = By.name("authentication.inputForms.loginModel.password");
@@ -37,6 +36,7 @@ public class Login_EditInputValues extends ElementActions {
         }
     }
 
+
     private boolean isAlertPresent()
     {
         try
@@ -49,6 +49,4 @@ public class Login_EditInputValues extends ElementActions {
             return false;
         }
     }
-
 }
-
