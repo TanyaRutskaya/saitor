@@ -1,7 +1,7 @@
 package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
-import com.seavus.saitor.GoogleExcel.CheckRecorder;
+import com.seavus.saitor.googledoc.CheckRecorder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -30,9 +30,9 @@ public class LoginEditInputValues extends ElementActions {
 
         try {
             driver.findElement(loggedinPerson);
-            CheckRecorder.setValue("build 1!D7", "passed");
+            CheckRecorder.setValue("build 1!D7", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D7", "failed");
+            CheckRecorder.setValue("build 1!D7", CheckRecorder.FAILED);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
-import com.seavus.saitor.GoogleExcel.CheckRecorder;
+import com.seavus.saitor.googledoc.CheckRecorder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -15,6 +15,7 @@ import java.util.List;
 
 public class ProfDetailsTrainingEditable extends ElementActions {
 
+    public static final String PASSED = CheckRecorder.PASSED;
     By trainingblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]");
     By newtrainingbutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//button[@title='Create new']");
     By trainingnameQC = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[text()='Web QC']");
@@ -25,7 +26,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     By trainingnamefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//input[@name='cvComposition.inputForms.trainingModel.name']");
     By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
     By yearbackfrom = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//button[@title='navigate back']");
-    By yearbackto = By.xpath ("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//button[@title='navigate back']");
+    By yearbackto = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//button[@title='navigate back']");
     By fromdatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//input[@placeholder='Enter training start date']");
     By todatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//input[@placeholder='Enter training end date']");
     By validmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training start date cannot be bigger than the current date']");
@@ -42,7 +43,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     By namevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training name is required']");
     By validfrommessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training start date is required']");
     By validtomessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training end date is required']");
-    By nov2017= By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[@class='date' and contains(text(), '11/2015 -')]");
+    By nov2017 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[@class='date' and contains(text(), '11/2015 -')]");
     By fromdatefieldedit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//input");
 
     //Create a new training
@@ -50,7 +51,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         wait.presenceOfElement(newtrainingbutton);
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action1.moveToElement(element1).build().perform();
         button.click(newtrainingbutton);
@@ -62,7 +63,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
 
-        for (int a = 0; a < repeat; a++ ) {
+        for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
@@ -73,7 +74,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action3 = new Actions(driver);
         action3.moveToElement(element3).build().perform();
         int repeat1 = 2;
-        for (int b = 0; b < repeat1; b++ ) {
+        for (int b = 0; b < repeat1; b++) {
             action3.moveToElement(element3).build().perform();
             button.click(yearbackto);
             wait.visibilityOfElement(octoberto);
@@ -83,9 +84,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(trainingnameWeb);
-            CheckRecorder.setValue("build 1!D56", "passed");
+            CheckRecorder.setValue("build 1!D56", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D56", "failed");
+            CheckRecorder.setValue("build 1!D56", CheckRecorder.FAILED);
         }
         return true;
     }
@@ -104,9 +105,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(school);
-            CheckRecorder.setValue("build 1!D57", "failed");
+            CheckRecorder.setValue("build 1!D57", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D57", "passed");
+            CheckRecorder.setValue("build 1!D57", CheckRecorder.PASSED);
         }
         return true;
     }
@@ -115,7 +116,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action.moveToElement(element1).build().perform();
         button.click(newtrainingbutton);
@@ -127,7 +128,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
 
-        for (int a = 0; a < repeat; a++ ) {
+        for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
@@ -140,7 +141,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         action3.moveToElement(element3).build().perform();
         int repeat1 = 2;
 
-        for (int b = 0; b < repeat1; b++ ) {
+        for (int b = 0; b < repeat1; b++) {
             action3.moveToElement(element3).build().perform();
             button.click(yearbackto);
             wait.visibilityOfElement(octoberto);
@@ -151,9 +152,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(trainingnameQC);
-            CheckRecorder.setValue("build 1!D58", "failed");
+            CheckRecorder.setValue("build 1!D58", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D58", "passed");
+            CheckRecorder.setValue("build 1!D58", CheckRecorder.PASSED);
         }
         return true;
     }
@@ -172,9 +173,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(belhard);//need to add additional "driver.findElement(desctop)"
-            CheckRecorder.setValue("build 1!D59", "passed");
+            CheckRecorder.setValue("build 1!D59", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D59", "failed");
+            CheckRecorder.setValue("build 1!D59", CheckRecorder.FAILED);
         }
         return true;
     }
@@ -187,30 +188,30 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         enteredValue.title = "Web QC";
         String from = "10/2015";
         String to = "10/2016";
-        enteredValue.date = from + " - " + to  ;
+        enteredValue.date = from + " - " + to;
 
         int repeatblock = 3;
 
-        for (int i = 0; i < repeatblock; i++ ) {
+        for (int i = 0; i < repeatblock; i++) {
             Actions action1 = new Actions(driver);
-            scrolluntilvisibility();
+            scrollUntilVisibility();
             scroll();
             action1.moveToElement(element1).build().perform();
             button.click(newtrainingbutton);
             button.click(trainingnamefield);
             input.type(trainingnamefield, "Web QC");
             button.click(fromdatefield);
-            input.type(fromdatefield,from);
+            input.type(fromdatefield, from);
             button.click(todatefield);
-            input.type(todatefield,to);
+            input.type(todatefield, to);
             button.click(save);
         }
-        System.out.print("repeat counted = " + " " +duplicateCount(enteredValue));
-        if(repeatblock==duplicateCount(enteredValue)) {
+        System.out.print("repeat counted = " + " " + duplicateCount(enteredValue));
+        if (repeatblock == duplicateCount(enteredValue)) {
 
-            CheckRecorder.setValue("build 1!D60", "passed");
-        } else  {
-            CheckRecorder.setValue("build 1!D60", "failed");
+            CheckRecorder.setValue("build 1!D60", CheckRecorder.PASSED);
+        } else {
+            CheckRecorder.setValue("build 1!D60", CheckRecorder.FAILED);
         }
         return true;
     }
@@ -222,22 +223,22 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         enteredValue.title = "Web QC";
         String from = "10/2015";
         String to = "10/2016";
-        enteredValue.date = from + " - " + to  ;
+        enteredValue.date = from + " - " + to;
         Actions action4 = new Actions(driver);
         int repeatdelete = 3;
-        for (int a = 0; a < repeatdelete; a++ ) {
+        for (int a = 0; a < repeatdelete; a++) {
             WebElement element4 = driver.findElement(editQC);
             action4.moveToElement(element4).build().perform();
             button.click(editQC);
             button.click(remove);
-            scrolluntilvisibility();
+            scrollUntilVisibility();
         }
 
-        if(repeatdelete==duplicateCount(enteredValue)) {
+        if (repeatdelete == duplicateCount(enteredValue)) {
 
-            CheckRecorder.setValue("build 1!D61", "failed");
-        } else  {
-            CheckRecorder.setValue("build 1!D61", "passed");
+            CheckRecorder.setValue("build 1!D61", CheckRecorder.FAILED);
+        } else {
+            CheckRecorder.setValue("build 1!D61", CheckRecorder.PASSED);
         }
         return true;
     }
@@ -247,7 +248,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action1.moveToElement(element1).build().perform();
         button.click(newtrainingbutton);
@@ -257,7 +258,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
 
-        for (int a = 0; a < repeat; a++ ) {
+        for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
@@ -268,7 +269,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action3 = new Actions(driver);
         action3.moveToElement(element3).build().perform();
         int repeat1 = 2;
-        for (int b = 0; b < repeat1; b++ ) {
+        for (int b = 0; b < repeat1; b++) {
             action3.moveToElement(element3).build().perform();
             button.click(yearbackto);
             wait.visibilityOfElement(octoberto);
@@ -278,19 +279,19 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(namevalidmessage);
-            CheckRecorder.setValue("build 1!D62", "passed");
+            CheckRecorder.setValue("build 1!D62", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D62", "failed");
+            CheckRecorder.setValue("build 1!D62", CheckRecorder.FAILED);
         }
         button.click(cancelnew);
         return true;
     }
 
-        //check the validation for the field "DATE FROM"
+    //check the validation for the field "DATE FROM"
     public boolean validationDatefrom() throws IOException {
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action1.moveToElement(element1).build().perform();
         button.click(newtrainingbutton);
@@ -301,7 +302,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action3 = new Actions(driver);
         action3.moveToElement(element3).build().perform();
         int repeat1 = 2;
-        for (int b = 0; b < repeat1; b++ ) {
+        for (int b = 0; b < repeat1; b++) {
             action3.moveToElement(element3).build().perform();
             button.click(yearbackto);
             wait.visibilityOfElement(octoberto);
@@ -311,9 +312,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(validfrommessage);
-            CheckRecorder.setValue("build 1!D63", "passed");
+            CheckRecorder.setValue("build 1!D63", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D63", "failed");
+            CheckRecorder.setValue("build 1!D63", CheckRecorder.FAILED);
         }
         button.click(cancelnew);
         return true;
@@ -323,7 +324,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     public boolean validationDateTo() throws IOException {
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action1.moveToElement(element1).build().perform();
         button.click(newtrainingbutton);
@@ -335,7 +336,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
 
-        for (int a = 0; a < repeat; a++ ) {
+        for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
@@ -346,9 +347,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(validtomessage);
-            CheckRecorder.setValue("build 1!D64", "passed");
+            CheckRecorder.setValue("build 1!D64", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D64", "failed");
+            CheckRecorder.setValue("build 1!D64", CheckRecorder.FAILED);
         }
         button.click(cancelnew);
         return true;
@@ -358,7 +359,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     public boolean dateFromExceedsTo() throws IOException {
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action1.moveToElement(element1).build().perform();
         button.click(newtrainingbutton);
@@ -370,7 +371,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         action2.moveToElement(element2).build().perform();
         int repeat = 2;
 
-        for (int a = 0; a < repeat; a++ ) {
+        for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
@@ -382,7 +383,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action3 = new Actions(driver);
         action3.moveToElement(element3).build().perform();
         int repeat1 = 3;
-        for (int b = 0; b < repeat1; b++ ) {
+        for (int b = 0; b < repeat1; b++) {
             action3.moveToElement(element3).build().perform();
             button.click(yearbackto);
             wait.visibilityOfElement(octoberto);
@@ -392,9 +393,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(validmessage);
-            CheckRecorder.setValue("build 1!D65", "passed");
+            CheckRecorder.setValue("build 1!D65", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D65", "failed");
+            CheckRecorder.setValue("build 1!D65", CheckRecorder.FAILED);
         }
         button.click(cancelnew);
         return true;
@@ -405,7 +406,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         WebElement element2 = driver.findElement(descedit);
         Actions action = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action.moveToElement(element2).build().perform();
         button.click(descedit);
@@ -416,9 +417,9 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         try {
             driver.findElement(nov2017);
-            CheckRecorder.setValue("build 1!D66", "passed");
+            CheckRecorder.setValue("build 1!D66", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D66", "failed");
+            CheckRecorder.setValue("build 1!D66", CheckRecorder.FAILED);
         }
         button.click(canceledit);
         return true;
@@ -428,7 +429,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     public boolean dateAlphabetical() throws IOException {
         WebElement element6 = driver.findElement(newtrainingbutton);
         Actions action = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         action.moveToElement(element6).build().perform();
         button.click(newtrainingbutton);
         button.click(trainingnamefield);
@@ -440,16 +441,16 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         button.click(save);
         try {
             driver.findElement(validfrommessage);
-            CheckRecorder.setValue("build 1!D67", "passed");
+            CheckRecorder.setValue("build 1!D67", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D67", "failed");
+            CheckRecorder.setValue("build 1!D67", CheckRecorder.FAILED);
         }
         button.click(cancelnew);
         return true;
 
     }
 
-//check the reaction to the double click
+    //check the reaction to the double click
     public boolean doubleclick() throws IOException {
         CertItem enteredValue = new CertItem();
         enteredValue.title = "Web QC";
@@ -458,7 +459,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         enteredValue.date = from + "-" + to;
         WebElement element6 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
-        scrolluntilvisibility();
+        scrollUntilVisibility();
         scroll();
         action1.moveToElement(element6).build().perform();
         button.click(newtrainingbutton);
@@ -470,25 +471,25 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         input.type(todatefield, to);
 
         Actions action3 = new Actions(driver);
-        WebElement element=driver.findElement(save);
+        WebElement element = driver.findElement(save);
         action3.doubleClick(element).perform();
 
-        if(duplicateCount(enteredValue)>=2) {
+        if (duplicateCount(enteredValue) >= 2) {
 
-            CheckRecorder.setValue("build 1!D68", "failed");
-        } else  {
-            CheckRecorder.setValue("build 1!D68", "passed");
+            CheckRecorder.setValue("build 1!D68", CheckRecorder.FAILED);
+        } else {
+            CheckRecorder.setValue("build 1!D68", CheckRecorder.PASSED);
         }
         return true;
     }
 
 
     public int duplicateCount(CertItem item) {
-        List<WebElement> elementslist= driver.findElements(trainingrow);
+        List<WebElement> elementsList = driver.findElements(trainingrow);
         List<CertItem> certItems = new ArrayList<>();
 
-        for(int n = 0; n < elementslist.size(); n++) {
-            WebElement webElement = elementslist.get(n);
+        for (int n = 0; n < elementsList.size(); n++) {
+            WebElement webElement = elementsList.get(n);
             CertItem certItem = new CertItem();
 
             certItem.title = webElement.findElement(By.className("title")).getText();
@@ -499,24 +500,24 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
         int duplicateCount = 0;
 
-        for(int k = 0; k < certItems.size(); k++){
-            if(certItems.get(k).title.equals(item.title)
+        for (int k = 0; k < certItems.size(); k++) {
+            if (certItems.get(k).title.equals(item.title)
                     && certItems.get(k).date.equals(item.date)) {
                 duplicateCount++;
             }
-       }
-       return duplicateCount;
-   }
+        }
+        return duplicateCount;
+    }
 
 
-   public void scroll() {
+    public void scroll() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,-100)", "");
 
     }
 
 
-    public void scrolluntilvisibility(){
+    public void scrollUntilVisibility() {
         WebElement element = driver.findElement(trainingblock);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         wait.presenceOfElement(newtrainingbutton);

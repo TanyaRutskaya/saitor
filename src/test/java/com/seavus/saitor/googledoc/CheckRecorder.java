@@ -1,4 +1,4 @@
-package com.seavus.saitor.GoogleExcel;
+package com.seavus.saitor.googledoc;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -20,7 +20,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class CheckRecorder {
+
+    public static final String FAILED = "failed";
+    public static final String PASSED = "passed";
     /**
      * Application name.
      */

@@ -5,7 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.seavus.common.Global;
-import svs.autotest.checks.*;
+
 import java.io.IOException;
 
 
@@ -16,7 +16,7 @@ public class RunTestCases extends Global {
     LoginEditInputValues loginEditInputValues = new LoginEditInputValues();
     ProfDetailsJobNotEditable profDetailsJobNotEditable = new ProfDetailsJobNotEditable();
     ProfDetailsLangEditable profDetailsLangEditable = new ProfDetailsLangEditable();
-    ProfDetailsEducationEditable profDetails_educationEditable = new ProfDetailsEducationEditable();
+    ProfDetailsEducationEditable profDetailsEducationEditable = new ProfDetailsEducationEditable();
     ProfDetailsCertificationEditable profDetailsCertificationEditable = new ProfDetailsCertificationEditable();
     ProfDetailsTrainingEditable profDetailsTrainingEditable = new ProfDetailsTrainingEditable();
 
@@ -25,9 +25,14 @@ public class RunTestCases extends Global {
     public void setUpTest() throws IOException {
 
         loginValidCredentials.pageNavigation();
-        loginValidCredentials.loginSuccessfully();
+        loginValidCredentials.login();
     }
 
+    @Test
+    public void testLoginSuccessful() throws Exception {
+
+        loginValidCredentials.loginSuccessful();
+    }
 
     @Test
     public void LoginTest() throws IOException, InterruptedException {
@@ -66,19 +71,19 @@ public class RunTestCases extends Global {
     @Test
     public void Education() throws IOException, InterruptedException {
 
-        profDetails_educationEditable.addEdu();
-        profDetails_educationEditable.langEditCancel();
-        profDetails_educationEditable.editCalendarPeriod();
-        profDetails_educationEditable.editEdu();
-        profDetails_educationEditable.cancelCreateEdu();
-        profDetails_educationEditable.dateToEarlier();
-        profDetails_educationEditable.dateAlphabetical();
-        profDetails_educationEditable.validationeduname();
-        profDetails_educationEditable.validationedudegree();
-        profDetails_educationEditable.doubleclick();
-        profDetails_educationEditable.morethan1block();
-        profDetails_educationEditable.removeEdu();
-}
+        profDetailsEducationEditable.addEdu();
+        profDetailsEducationEditable.langEditCancel();
+        profDetailsEducationEditable.editCalendarPeriod();
+        profDetailsEducationEditable.editEdu();
+        profDetailsEducationEditable.cancelCreateEdu();
+        profDetailsEducationEditable.dateToEarlier();
+        profDetailsEducationEditable.dateAlphabetical();
+        profDetailsEducationEditable.validationeduname();
+        profDetailsEducationEditable.validationedudegree();
+        profDetailsEducationEditable.doubleclick();
+        profDetailsEducationEditable.morethan1block();
+        profDetailsEducationEditable.removeEdu();
+    }
 
 
     @Test
@@ -97,7 +102,7 @@ public class RunTestCases extends Global {
         profDetailsCertificationEditable.dateAlphabetical();
         profDetailsCertificationEditable.dateExceeds();
         profDetailsCertificationEditable.doubleclick();
-   }
+    }
 
 
     @Test

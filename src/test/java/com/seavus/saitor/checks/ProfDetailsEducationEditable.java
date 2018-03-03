@@ -1,7 +1,7 @@
 package com.seavus.saitor.checks;
 
 import com.seavus.common.elements.ElementActions;
-import com.seavus.saitor.GoogleExcel.CheckRecorder;
+import com.seavus.saitor.googledoc.CheckRecorder;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -56,9 +56,9 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
         try {
             driver.findElement(mslu);
-            CheckRecorder.setValue("build 1!D31", "passed");
+            CheckRecorder.setValue("build 1!D31", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D31", "failed");
+            CheckRecorder.setValue("build 1!D31", CheckRecorder.FAILED);
         }
         return true;
 
@@ -78,14 +78,14 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
         try {
             driver.findElement(school);
-            CheckRecorder.setValue("build 1!D32", "failed");
+            CheckRecorder.setValue("build 1!D32", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D32", "passed");
+            CheckRecorder.setValue("build 1!D32", CheckRecorder.PASSED);
         }
         return true;
     }
 
-//Check  edit "From"/"To" from the "Calendar" button
+    //Check  edit "From"/"To" from the "Calendar" button
     public boolean editCalendarPeriod() throws IOException {
 
         WebElement element2 = driver.findElement(msluedit);
@@ -108,9 +108,9 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(msluedit);
         try {
             driver.findElement(ye1999);
-            CheckRecorder.setValue("build 1!D37", "passed");
+            CheckRecorder.setValue("build 1!D37", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D37", "failed");
+            CheckRecorder.setValue("build 1!D37", CheckRecorder.FAILED);
         }
         button.click(canceledit);
         return true;
@@ -131,14 +131,14 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(save);
         try {
             driver.findElement(school);
-            CheckRecorder.setValue("build 1!D34", "passed");
+            CheckRecorder.setValue("build 1!D34", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D34", "failed");
+            CheckRecorder.setValue("build 1!D34", CheckRecorder.FAILED);
         }
         return true;
     }
 
-//verify if there is an ability to add > 2 educations
+    //verify if there is an ability to add > 2 educations
     public boolean morethan1block() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         Actions action1 = new Actions(driver);
@@ -149,11 +149,11 @@ public class ProfDetailsEducationEditable extends ElementActions {
         String endEdu = "2000";
         enteredValue.period = startEdu + " - " + endEdu;
         int repeat = 3;
-        for (int i = 0; i < repeat; i++ ) {
+        for (int i = 0; i < repeat; i++) {
             action1.moveToElement(element6).build().perform();
             button.click(newedu);
             button.click(eduname);
-            input.type(eduname,  enteredValue.title);
+            input.type(eduname, enteredValue.title);
             button.click(edudegree);
             input.type(edudegree, enteredValue.degree);
             button.click(edustart);
@@ -165,17 +165,17 @@ public class ProfDetailsEducationEditable extends ElementActions {
             scroll();
 
         }
-        System.out.print("repeat counted = " + " " +duplicateCount(enteredValue));
-        if(repeat==duplicateCount(enteredValue)) {
+        System.out.print("repeat counted = " + " " + duplicateCount(enteredValue));
+        if (repeat == duplicateCount(enteredValue)) {
 
-            CheckRecorder.setValue("build 1!D39", "passed");
-        } else  {
-            CheckRecorder.setValue("build 1!D39", "failed");
+            CheckRecorder.setValue("build 1!D39", CheckRecorder.PASSED);
+        } else {
+            CheckRecorder.setValue("build 1!D39", CheckRecorder.FAILED);
         }
         return true;
     }
 
-//remove education
+    //remove education
     public boolean removeEdu() throws IOException {
         WebElement element6 = driver.findElement(newedu);
         EducationItem enteredValue = new EducationItem();
@@ -188,7 +188,7 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
         int repeatdelete = 3;
 
-        for (int a = 0; a < repeatdelete; a++ ) {
+        for (int a = 0; a < repeatdelete; a++) {
             WebElement element4 = driver.findElement(editBSUIR);
             action4.moveToElement(element4).build().perform();
             button.click(editBSUIR);
@@ -196,11 +196,11 @@ public class ProfDetailsEducationEditable extends ElementActions {
             scrolluntilvisibility();
         }
 
-        if(repeatdelete==duplicateCount(enteredValue)) {
+        if (repeatdelete == duplicateCount(enteredValue)) {
 
-            CheckRecorder.setValue("build 1!D38", "failed");
-        } else  {
-            CheckRecorder.setValue("build 1!D38", "passed");
+            CheckRecorder.setValue("build 1!D38", CheckRecorder.FAILED);
+        } else {
+            CheckRecorder.setValue("build 1!D38", CheckRecorder.PASSED);
         }
 
         return true;
@@ -226,14 +226,14 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
         try {
             driver.findElement(harvard);
-            CheckRecorder.setValue("build 1!D33", "failed");
+            CheckRecorder.setValue("build 1!D33", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D33", "passed");
+            CheckRecorder.setValue("build 1!D33", CheckRecorder.PASSED);
         }
         return true;
     }
 
-// check the disability to set the date "To" earlier than "From"
+    // check the disability to set the date "To" earlier than "From"
     public boolean dateToEarlier() throws IOException {
         WebElement element5 = driver.findElement(newedu);
         Actions action = new Actions(driver);
@@ -252,9 +252,9 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(save);
         try {
             driver.findElement(startdatevalidation);
-            CheckRecorder.setValue("build 1!D35", "passed");
+            CheckRecorder.setValue("build 1!D35", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D35", "failed");
+            CheckRecorder.setValue("build 1!D35", CheckRecorder.FAILED);
         }
         button.click(cancelnewedu);
         return true;
@@ -279,14 +279,14 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(save);
         try {
             driver.findElement(endDateValidation);
-            CheckRecorder.setValue("build 1!D36", "passed");
+            CheckRecorder.setValue("build 1!D36", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D36", "failed");
+            CheckRecorder.setValue("build 1!D36", CheckRecorder.FAILED);
         }
         return true;
     }
 
-//check the validation for the field EducationName
+    //check the validation for the field EducationName
     public boolean validationeduname() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newedu);
         Actions action = new Actions(driver);
@@ -304,15 +304,15 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
         try {
             driver.findElement(edunamerequired);
-            CheckRecorder.setValue("build 1!D40", "passed");
+            CheckRecorder.setValue("build 1!D40", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D40", "failed");
+            CheckRecorder.setValue("build 1!D40", CheckRecorder.FAILED);
         }
         button.click(cancelnewedu);
         return true;
     }
 
-//check the validation for the field EducationDegree
+    //check the validation for the field EducationDegree
     public boolean validationedudegree() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newedu);
         Actions action = new Actions(driver);
@@ -330,15 +330,15 @@ public class ProfDetailsEducationEditable extends ElementActions {
         try {
 
             driver.findElement(edudegreerequired);
-            CheckRecorder.setValue("build 1!D41", "passed");
+            CheckRecorder.setValue("build 1!D41", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D41", "failed");
+            CheckRecorder.setValue("build 1!D41", CheckRecorder.FAILED);
         }
         button.click(cancelnewedu);
         return true;
     }
 
-//check the reaction to the double click
+    //check the reaction to the double click
     public boolean doubleclick() throws IOException {
         EducationItem enteredValue = new EducationItem();
         enteredValue.title = "Harvard";
@@ -361,23 +361,23 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(eduend);
         input.type(eduend, endEdu);
         Actions action2 = new Actions(driver);
-        WebElement element=driver.findElement(save);
+        WebElement element = driver.findElement(save);
         action2.doubleClick(element).perform();
-        if(duplicateCount(enteredValue)>=2) {
+        if (duplicateCount(enteredValue) >= 2) {
 
-            CheckRecorder.setValue("build 1!D42", "failed");
-        } else  {
-            CheckRecorder.setValue("build 1!D42", "passed");
+            CheckRecorder.setValue("build 1!D42", CheckRecorder.FAILED);
+        } else {
+            CheckRecorder.setValue("build 1!D42", CheckRecorder.PASSED);
         }
         return true;
     }
 
 
     public int duplicateCount(EducationItem item) {
-        List<WebElement> elementslist= driver.findElements(edurow);
+        List<WebElement> elementslist = driver.findElements(edurow);
         List<EducationItem> educationItems = new ArrayList<>();
 
-        for(int n = 0; n < elementslist.size(); n++) {
+        for (int n = 0; n < elementslist.size(); n++) {
             WebElement webElement = elementslist.get(n);
             EducationItem educationItem = new EducationItem();
             educationItem.title = webElement.findElement(By.className("title")).getText();
@@ -387,8 +387,8 @@ public class ProfDetailsEducationEditable extends ElementActions {
         }
 
         int duplicateCount = 0;
-        for(int k = 0; k < educationItems.size(); k++){
-            if(educationItems.get(k).title.equals(item.title)
+        for (int k = 0; k < educationItems.size(); k++) {
+            if (educationItems.get(k).title.equals(item.title)
                     && educationItems.get(k).degree.equals(item.degree)
                     && educationItems.get(k).period.equals(item.period)) {
                 duplicateCount++;
@@ -411,7 +411,7 @@ public class ProfDetailsEducationEditable extends ElementActions {
     }
 
 
-    public void scrolluntilvisibility(){
+    public void scrolluntilvisibility() {
         WebElement element = driver.findElement(edublock);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         wait.presenceOfElement(edublock);

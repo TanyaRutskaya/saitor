@@ -4,7 +4,8 @@ import com.seavus.common.elements.ElementActions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import com.seavus.saitor.GoogleExcel.CheckRecorder;
+import com.seavus.saitor.googledoc.CheckRecorder;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class ProfDetailsLangEditable extends ElementActions {
 
-By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]");
+    By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]");
     By newlan = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//button[@title='Create new']");
     By editeng = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='English']]//button[@title='Edit']");
     By editgerman = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Deutch']]//button[@title='Edit']");
@@ -22,8 +23,8 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Save']");
     By german = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Deutch']");
     By chinese = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Chinese']");
-    By englishinfield=By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@value='English']");
-    By remove= By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Remove']");
+    By englishinfield = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@value='English']");
+    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Remove']");
     By cancel = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-default' and text()='Cancel']");
     By cancelEdition = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
     By langrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
@@ -40,29 +41,29 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         scroll();
         action.moveToElement(element).build().perform();
 
-            button.click(newlan);
-            button.click(language);
-            input.type(language, "English");
-            Select level = new Select(driver.findElement(langprofEn));
-            level.selectByValue("NATIVE");
-            button.click(save);
+        button.click(newlan);
+        button.click(language);
+        input.type(language, "English");
+        Select level = new Select(driver.findElement(langprofEn));
+        level.selectByValue("NATIVE");
+        button.click(save);
 
         try {
 
             driver.findElement(editeng);
-            CheckRecorder.setValue("build 1!D22", "passed");
+            CheckRecorder.setValue("build 1!D22", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D22", "failed");
+            CheckRecorder.setValue("build 1!D22", CheckRecorder.FAILED);
         }
         button.click(cancel);
         return true;
     }
 
-//Cancel check in Edit mode
+    //Cancel check in Edit mode
     public boolean cancelEditProf() throws IOException {
 
         WebElement element6 = driver.findElement(editeng);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         scrolluntilvisibility();
         scroll();
         action.moveToElement(element6).build().perform();
@@ -75,9 +76,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         button.click(cancelEdition);
         try {
             driver.findElement(langprofDe);
-            CheckRecorder.setValue("build 1!D27", "failed");
+            CheckRecorder.setValue("build 1!D27", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D27", "passed");
+            CheckRecorder.setValue("build 1!D27", CheckRecorder.PASSED);
         }
         return true;
     }
@@ -85,31 +86,31 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     // check the adjustment of the language
     public boolean langEdit() throws IOException {
 
-            WebElement element2 = driver.findElement(editeng);
-            Actions action2= new Actions(driver);
-            scrolluntilvisibility();
-            scroll();
-            action2.moveToElement(element2).build().perform();
-            button.click(editeng);
-            input.clear(englishinfield);
-            input.type(language, "Deutch");
-            button.click(save);
-            try {
+        WebElement element2 = driver.findElement(editeng);
+        Actions action2 = new Actions(driver);
+        scrolluntilvisibility();
+        scroll();
+        action2.moveToElement(element2).build().perform();
+        button.click(editeng);
+        input.clear(englishinfield);
+        input.type(language, "Deutch");
+        button.click(save);
+        try {
 
-                driver.findElement(german);
-                CheckRecorder.setValue("build 1!D23", "passed");
-            } catch (NoSuchElementException ex) {
-                CheckRecorder.setValue("build 1!D23", "failed");
-            }
-
-            return true;
+            driver.findElement(german);
+            CheckRecorder.setValue("build 1!D23", CheckRecorder.PASSED);
+        } catch (NoSuchElementException ex) {
+            CheckRecorder.setValue("build 1!D23", CheckRecorder.FAILED);
         }
 
-//checking the adjustment of the  language level
+        return true;
+    }
+
+    //checking the adjustment of the  language level
     public boolean langprofEdit() throws IOException {
 
         WebElement element3 = driver.findElement(editgerman);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(element3).build().perform();
         button.click(editgerman);
         Select level2 = new Select(driver.findElement(langprofEn));
@@ -117,9 +118,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         button.click(save);
         try {
             driver.findElement(langprofDe);
-            CheckRecorder.setValue("build 1!D24", "passed");
+            CheckRecorder.setValue("build 1!D24", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D24", "failed");
+            CheckRecorder.setValue("build 1!D24", CheckRecorder.FAILED);
         }
         return true;
     }
@@ -128,15 +129,15 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     public boolean removelang() throws IOException {
 
         WebElement element4 = driver.findElement(editgerman);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         action.moveToElement(element4).build().perform();
         button.click(editgerman);
         button.click(remove);
         try {
             driver.findElement(german);
-            CheckRecorder.setValue("build 1!D25", "failed");
+            CheckRecorder.setValue("build 1!D25", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D25", "passed");
+            CheckRecorder.setValue("build 1!D25", CheckRecorder.PASSED);
         }
         return true;
     }
@@ -144,7 +145,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
     public boolean cancelCreateLang() throws IOException {
         WebElement element5 = driver.findElement(newlan);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         scrolluntilvisibility();
         scroll();
         action.moveToElement(element5).build().perform();
@@ -157,9 +158,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
 
         try {
             driver.findElement(chinese);
-            CheckRecorder.setValue("build 1!D26", "failed");
+            CheckRecorder.setValue("build 1!D26", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D26", "passed");
+            CheckRecorder.setValue("build 1!D26", CheckRecorder.PASSED);
         }
 
         return true;
@@ -169,9 +170,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     public boolean doubleclick() throws IOException {
         LangItem enteredValue = new LangItem();
         enteredValue.enterlang = "Italian";
-        enteredValue.enterprof= "Elementary";
+        enteredValue.enterprof = "Elementary";
         WebElement element5 = driver.findElement(newlan);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         scrolluntilvisibility();
         scroll();
         action.moveToElement(element5).build().perform();
@@ -181,12 +182,12 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("ELEMENTARY");
         Actions action2 = new Actions(driver);
-        WebElement element6=driver.findElement(save);
+        WebElement element6 = driver.findElement(save);
         action2.doubleClick(element6).perform();
-        if(duplicateCount(enteredValue)>=2) {
-            CheckRecorder.setValue("build 1!D28", "failed");
-        } else  {
-            CheckRecorder.setValue("build 1!D28", "passed");
+        if (duplicateCount(enteredValue) >= 2) {
+            CheckRecorder.setValue("build 1!D28", CheckRecorder.FAILED);
+        } else {
+            CheckRecorder.setValue("build 1!D28", CheckRecorder.PASSED);
         }
         return true;
     }
@@ -195,7 +196,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     public boolean validationLangfield() throws IOException {
 
         WebElement element5 = driver.findElement(newlan);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         scrolluntilvisibility();
         scroll();
         action.moveToElement(element5).build().perform();
@@ -205,9 +206,9 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         button.click(save);
         try {
             driver.findElement(langvalidation);
-            CheckRecorder.setValue("build 1!D29", "passed");
+            CheckRecorder.setValue("build 1!D29", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D29", "failed");
+            CheckRecorder.setValue("build 1!D29", CheckRecorder.FAILED);
         }
         button.click(cancel);
         return true;
@@ -217,7 +218,7 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
     public boolean validationProffield() throws IOException {
 
         WebElement element5 = driver.findElement(newlan);
-        Actions action= new Actions(driver);
+        Actions action = new Actions(driver);
         scrolluntilvisibility();
         scroll();
         action.moveToElement(element5).build().perform();
@@ -227,48 +228,47 @@ By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-compon
         button.click(save);
         try {
             driver.findElement(profvalidation);
-            CheckRecorder.setValue("build 1!D30", "passed");
+            CheckRecorder.setValue("build 1!D30", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D30", "failed");
+            CheckRecorder.setValue("build 1!D30", CheckRecorder.FAILED);
         }
         button.click(cancel);
         return true;
     }
 
 
-    public void scroll(){
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
+    public void scroll() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,-150)", "");
-}
+    }
 
 
     public int duplicateCount(LangItem item) {
-    List<WebElement> elementslist= driver.findElements(langrow);
-    List <LangItem> langItems = new ArrayList<>();
+        List<WebElement> elementslist = driver.findElements(langrow);
+        List<LangItem> langItems = new ArrayList<>();
 
-        for(int n = 0; n < elementslist.size(); n++) {
-        WebElement webElement = elementslist.get(n);
-        LangItem langItem = new LangItem();
-        langItem.enterlang = webElement.findElement(By.className("title")).getText();
-        langItem.enterprof = webElement.findElement(By.className("subtitle")).getText();
-        langItems.add(langItem);
+        for (int n = 0; n < elementslist.size(); n++) {
+            WebElement webElement = elementslist.get(n);
+            LangItem langItem = new LangItem();
+            langItem.enterlang = webElement.findElement(By.className("title")).getText();
+            langItem.enterprof = webElement.findElement(By.className("subtitle")).getText();
+            langItems.add(langItem);
 
-    }
-
-    int duplicateCount = 0;
-
-        for(int k = 0; k < langItems.size(); k++){
-        if(langItems.get(k).enterlang.equals(item.enterlang)
-                && langItems.get(k).enterprof.equals(item.enterprof))
-            {
-            duplicateCount++;
         }
-    }
+
+        int duplicateCount = 0;
+
+        for (int k = 0; k < langItems.size(); k++) {
+            if (langItems.get(k).enterlang.equals(item.enterlang)
+                    && langItems.get(k).enterprof.equals(item.enterprof)) {
+                duplicateCount++;
+            }
+        }
         return duplicateCount;
-}
+    }
 
 
-public void scrolluntilvisibility(){
+    public void scrolluntilvisibility() {
         WebElement element = driver.findElement(languageblock);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         wait.presenceOfElement(newlan);
@@ -276,8 +276,8 @@ public void scrolluntilvisibility(){
 
 
     class LangItem {
-    public String enterlang;
-    public String enterprof;
+        public String enterlang;
+        public String enterprof;
 
-}
+    }
 }

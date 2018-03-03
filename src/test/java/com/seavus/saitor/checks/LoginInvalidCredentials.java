@@ -3,7 +3,8 @@ package com.seavus.saitor.checks;
 import com.seavus.common.elements.ElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import com.seavus.saitor.GoogleExcel.CheckRecorder;
+import com.seavus.saitor.googledoc.CheckRecorder;
+
 import java.io.IOException;
 
 
@@ -21,16 +22,16 @@ public class LoginInvalidCredentials extends ElementActions {
 
         wait.presenceOfElement(login);
         button.click(login);
-        input.type(login,"Person.2");
+        input.type(login, "Person.2");
         button.click(pass);
         input.type(pass, "123");
         button.click(loginButton);
 
         try {
             driver.findElement(validation);
-            CheckRecorder.setValue("build 1!D5", "passed");
+            CheckRecorder.setValue("build 1!D5", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D5", "failed");
+            CheckRecorder.setValue("build 1!D5", CheckRecorder.FAILED);
         }
 
         input.clear(pass);
@@ -41,16 +42,16 @@ public class LoginInvalidCredentials extends ElementActions {
 
     public boolean invalidpass() throws IOException {
         button.click(login);
-        input.type(login,"Person.1");
+        input.type(login, "Person.1");
         button.click(pass);
         input.type(pass, "");
         button.click(loginButton);
 
         try {
             driver.findElement(validation);
-            CheckRecorder.setValue("build 1!D6", "passed");
+            CheckRecorder.setValue("build 1!D6", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D6", "failed");
+            CheckRecorder.setValue("build 1!D6", CheckRecorder.FAILED);
         }
 
         input.clear(login);
@@ -67,9 +68,9 @@ public class LoginInvalidCredentials extends ElementActions {
 
         try {
             driver.findElement(noUsernameValidation);
-            CheckRecorder.setValue("build 1!D8", "passed");
+            CheckRecorder.setValue("build 1!D8", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D8", "failed");
+            CheckRecorder.setValue("build 1!D8", CheckRecorder.FAILED);
         }
 
         input.clear(pass);
@@ -80,15 +81,15 @@ public class LoginInvalidCredentials extends ElementActions {
     // no password validation check
     public boolean nopass() throws IOException {
         button.click(login);
-        input.type(login,"Person.2");
+        input.type(login, "Person.2");
         input.clear(pass);
         button.click(loginButton);
 
         try {
             driver.findElement(noPassValidation);
-            CheckRecorder.setValue("build 1!D9", "passed");
+            CheckRecorder.setValue("build 1!D9", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
-            CheckRecorder.setValue("build 1!D9", "failed");
+            CheckRecorder.setValue("build 1!D9", CheckRecorder.FAILED);
         }
 
         input.clear(pass);
