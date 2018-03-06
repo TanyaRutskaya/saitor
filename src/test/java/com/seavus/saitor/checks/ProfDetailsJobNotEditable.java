@@ -9,7 +9,7 @@ import java.io.IOException;
 
 
 public class ProfDetailsJobNotEditable extends ElementActions {
-    By edit = By.xpath("//div[@class='col-xs-12 child-component' and .//h5[text()='Job Position:']]//button[@title='Edit']");
+    By edit = By.xpath("//div[@class='col-xs-12 child-component' and .//h5[text()='job Position:']]//button[@title='Edit']");
 
     public boolean jobIneditable() throws IOException {
         try {

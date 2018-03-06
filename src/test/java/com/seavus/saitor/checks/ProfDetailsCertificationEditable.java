@@ -11,31 +11,31 @@ import java.util.List;
 
 
 public class ProfDetailsCertificationEditable extends ElementActions {
-    By certificateblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]");
-    By newcertificatebutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//button[@title='Create new']");
-    By certnameQC = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//p[text()='Web QC']");
-    By certnameWeb = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//p[text()='Web QA']");
-    By editQC = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QC']]//button[@title='Edit']");
-    By webedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QA']]//button[@title='Edit']");
-    By certnamefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//input[@name='cvComposition.inputForms.certificationModel.name']");
-    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By certyearback = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//button[@aria-label='navigate back']");
-    By certdatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//input[@name='cvComposition.inputForms.certificationModel.validFrom']");
-    By certissuer = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//input[@placeholder='Enter certification issuer']");
-    By editcertissuer = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//input[@name='cvComposition.inputForms.certificationModel.issuer']");
-    By oct2017 = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//p[@class='subtitle'and text()='10/2017']");
-    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//p[@class='title' and text()='School']");
-    By belhard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//p[text()='Belhard']");
-    By calendarbutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//div[input[@name='cvComposition.inputForms.certificationModel.validFrom']]//button");
-    By certyearforward = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//div[input[@name='cvComposition.inputForms.certificationModel.validFrom']]//button[@aria-label='navigate forward']");
-    By october = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//td/span[text()='Oct']");
-    By save = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//span[@class='ladda-label' and text()='Save']");
-    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//span[text()='Remove']");
-    By cancelnewcert = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//button[text()='Cancel']");
-    By certrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
-    By namevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//span[text()='Certification name is required']");
-    By issuervalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//span[text()='Certification issuer is required']");
-    By datevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//span[text()='Certification valid from is required']");
+    By certificateblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]");
+    By newcertificatebutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//button[@title='Create new']");
+    By certnameQC = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//p[text()='Web QC']");
+    By certnameWeb = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//p[text()='Web QA']");
+    By editQC = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QC']]//button[@title='Edit']");
+    By webedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QA']]//button[@title='Edit']");
+    By certnamefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//input[@name='cvComposition.inputForms.certificationModel.name']");
+    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
+    By certyearback = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//button[@aria-label='navigate back']");
+    By certdatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//input[@name='cvComposition.inputForms.certificationModel.validFrom']");
+    By certissuer = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//input[@placeholder='Enter certification issuer']");
+    By editcertissuer = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//input[@name='cvComposition.inputForms.certificationModel.issuer']");
+    By oct2017 = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//p[@class='subtitle'and text()='10/2017']");
+    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//p[@class='title' and text()='School']");
+    By belhard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//p[text()='Belhard']");
+    By calendarbutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//div[input[@name='cvComposition.inputForms.certificationModel.validFrom']]//button");
+    By certyearforward = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//div[input[@name='cvComposition.inputForms.certificationModel.validFrom']]//button[@aria-label='navigate forward']");
+    By october = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//td/span[text()='Oct']");
+    By save = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//span[@class='ladda-label' and text()='Save']");
+    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//span[text()='Remove']");
+    By cancelnewcert = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//button[text()='Cancel']");
+    By certrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
+    By namevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//span[text()='certification name is required']");
+    By issuervalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//span[text()='certification issuer is required']");
+    By datevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='certification']]//span[text()='certification valid from is required']");
 
     //Create a new certification
     public boolean addNew() throws IOException {
@@ -207,7 +207,7 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         return true;
     }
 
-    //remove Certification
+    //remove certification
     public boolean removeCert() throws IOException {
         CertItem enteredValue = new CertItem();
         enteredValue.title = "Web QC";
@@ -231,7 +231,7 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         return true;
     }
 
-    //check the validation for the field "Certification name"
+    //check the validation for the field "certification name"
     public boolean validationcertname() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newcertificatebutton);
         Actions action = new Actions(driver);
@@ -254,7 +254,7 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         return true;
     }
 
-    //check the validation for the field "Certification issuer"
+    //check the validation for the field "certification issuer"
     public boolean validationcertissuer() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newcertificatebutton);
         Actions action = new Actions(driver);
@@ -276,7 +276,7 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         return true;
     }
 
-    //check the validation for the field "Certification issuer"
+    //check the validation for the field "certification issuer"
     public boolean validationcertdate() throws IOException, InterruptedException {
         WebElement element6 = driver.findElement(newcertificatebutton);
         Actions action = new Actions(driver);
@@ -324,7 +324,7 @@ public class ProfDetailsCertificationEditable extends ElementActions {
 
     }
 
-    // check the disability to set the Certification date later than current date
+    // check the disability to set the certification date later than current date
     public boolean dateExceeds() throws IOException {
         WebElement element5 = driver.findElement(newcertificatebutton);
         Actions action = new Actions(driver);

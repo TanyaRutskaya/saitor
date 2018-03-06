@@ -15,35 +15,35 @@ import java.util.List;
 
 public class ProfDetailsTrainingEditable extends ElementActions {
     public static final String PASSED = CheckRecorder.PASSED;
-    By trainingblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]");
-    By newtrainingbutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//button[@title='Create new']");
-    By trainingnameQC = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[text()='Web QC']");
-    By trainingnameWeb = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[text()='Web QA']");
-    By editQC = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QC']]//button[@title='Edit']");
-    By descedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Belhard']]//button[@title='Edit']");
-    By webedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QA']]//button[@title='Edit']");
-    By trainingnamefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//input[@name='cvComposition.inputForms.trainingModel.name']");
-    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By yearbackfrom = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//button[@title='navigate back']");
-    By yearbackto = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//button[@title='navigate back']");
-    By fromdatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//input[@placeholder='Enter training start date']");
-    By todatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//input[@placeholder='Enter training end date']");
-    By validmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training start date cannot be bigger than the current date']");
-    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[@class='title' and text()='School']");
-    By belhard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[text()='Belhard']");
-    By calendarfrombutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//button");
-    By calendartobutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//button");
-    By octoberto = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//td/span[text()='Oct']");
-    By octoberfrom = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//td/span[text()='Oct']");
-    By save = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[@class='ladda-label' and text()='Save']");
-    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Remove']");
-    By cancelnew = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//button[text()='Cancel']");
-    By trainingrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
-    By namevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training name is required']");
-    By validfrommessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training start date is required']");
-    By validtomessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//span[text()='Training end date is required']");
-    By nov2017 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//p[@class='date' and contains(text(), '11/2015 -')]");
-    By fromdatefieldedit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//input");
+    By trainingblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]");
+    By newtrainingbutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//button[@title='Create new']");
+    By trainingnameQC = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//p[text()='Web QC']");
+    By trainingnameWeb = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//p[text()='Web QA']");
+    By editQC = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QC']]//button[@title='Edit']");
+    By descedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Belhard']]//button[@title='Edit']");
+    By webedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Web QA']]//button[@title='Edit']");
+    By trainingnamefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//input[@name='cvComposition.inputForms.trainingModel.name']");
+    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
+    By yearbackfrom = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//button[@title='navigate back']");
+    By yearbackto = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//button[@title='navigate back']");
+    By fromdatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//input[@placeholder='Enter training start date']");
+    By todatefield = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//input[@placeholder='Enter training end date']");
+    By validmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[text()='training start date cannot be bigger than the current date']");
+    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//p[@class='title' and text()='School']");
+    By belhard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//p[text()='Belhard']");
+    By calendarfrombutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//button");
+    By calendartobutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//button");
+    By octoberto = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.toDate']]//td/span[text()='Oct']");
+    By octoberfrom = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//td/span[text()='Oct']");
+    By save = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[@class='ladda-label' and text()='Save']");
+    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[text()='Remove']");
+    By cancelnew = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//button[text()='Cancel']");
+    By trainingrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
+    By namevalidmessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[text()='training name is required']");
+    By validfrommessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[text()='training start date is required']");
+    By validtomessage = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//span[text()='training end date is required']");
+    By nov2017 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//p[@class='date' and contains(text(), '11/2015 -')]");
+    By fromdatefieldedit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='training']]//div[input[@name='cvComposition.inputForms.trainingModel.fromDate']]//input");
 
     //Create a new training
     public boolean addNew() throws IOException {
@@ -148,7 +148,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         return true;
     }
 
-    //Edit Training name
+    //Edit training name
     public boolean editTrainingName() throws IOException {
         WebElement element1 = driver.findElement(webedit);
         Actions action = new Actions(driver);
@@ -199,7 +199,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         return true;
     }
 
-    //remove Training
+    //remove training
     public boolean removeTraing() throws IOException {
         CertItem enteredValue = new CertItem();
         enteredValue.title = "Web QC";
@@ -223,7 +223,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         return true;
     }
 
-    //check the validation for the field "Training name"
+    //check the validation for the field "training name"
     public boolean validationTrainingname() throws IOException, InterruptedException {
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);

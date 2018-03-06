@@ -11,29 +11,29 @@ import java.util.List;
 
 
 public class ProfDetailsEducationEditable extends ElementActions {
-    By edublock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]");
-    By newedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[@title='Create new']");
-    By mslu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='MSLU']");
-    By msluedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='MSLU']]//button[@title='Edit']");
-    By editBSUIR = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='BSUIR']]//button[@title='Edit']");
-    By eduname = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@name='cvComposition.inputForms.educationModel.name']");
-    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By edustart = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[input[@name='cvComposition.inputForms.educationModel.fromDate']]//input");
-    By eduend = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[input[@name='cvComposition.inputForms.educationModel.toDate']]//input");
-    By edudegree = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[input[@name='cvComposition.inputForms.educationModel.degree']]//input");
-    By harvard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='Harvard']");
-    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[@class='title' and text()='School']");
-    By startdatevalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education start year must be smaller than the end year']");
-    By calendarfrombutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[@aria-hidden='true']");
-    By y1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//td[@title='1999']");
-    By ye1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//input[@value='1999']");
-    By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text()='Save']");
-    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text()='Remove']");
-    By cancelnewedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[text()='Cancel']");
-    By endDateValidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education to date is required']");
-    By edunamerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education name is required']");
-    By edudegreerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//span[text() = 'Education degree is required']");
-    By edurow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
+    By edublock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]");
+    By newedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//button[@title='Create new']");
+    By mslu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//p[text()='MSLU']");
+    By msluedit = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='MSLU']]//button[@title='Edit']");
+    By editBSUIR = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='BSUIR']]//button[@title='Edit']");
+    By eduname = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//input[@name='cvComposition.inputForms.educationModel.name']");
+    By canceledit = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
+    By edustart = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//div[input[@name='cvComposition.inputForms.educationModel.fromDate']]//input");
+    By eduend = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//div[input[@name='cvComposition.inputForms.educationModel.toDate']]//input");
+    By edudegree = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//div[input[@name='cvComposition.inputForms.educationModel.degree']]//input");
+    By harvard = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//p[text()='Harvard']");
+    By school = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//p[@class='title' and text()='School']");
+    By startdatevalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[text() = 'education start year must be smaller than the end year']");
+    By calendarfrombutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[@aria-hidden='true']");
+    By y1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//td[@title='1999']");
+    By ye1999 = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//input[@value='1999']");
+    By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[text()='Save']");
+    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[text()='Remove']");
+    By cancelnewedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//button[text()='Cancel']");
+    By endDateValidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[text() = 'education to date is required']");
+    By edunamerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[text() = 'education name is required']");
+    By edudegreerequired = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//span[text() = 'education degree is required']");
+    By edurow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='education']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
 
     //Create a new education
     public boolean addEdu() throws IOException {
@@ -110,7 +110,7 @@ public class ProfDetailsEducationEditable extends ElementActions {
         return true;
     }
 
-    //Edit Education name check
+    //Edit education name check
     public boolean editEdu() throws IOException {
         WebElement element3 = driver.findElement(msluedit);
         Actions action3 = new Actions(driver);

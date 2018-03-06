@@ -12,23 +12,23 @@ import java.util.List;
 
 
 public class ProfDetailsLangEditable extends ElementActions {
-    By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]");
-    By newlan = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//button[@title='Create new']");
-    By editeng = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='English']]//button[@title='Edit']");
-    By editgerman = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Deutch']]//button[@title='Edit']");
-    By language = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@name ='cvComposition.inputForms.languageModel.name']");
-    By langprofEn = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//select");
-    By langprofDe = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='subtitle' and text()='Limited Working']");
-    By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Save']");
-    By german = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Deutch']");
-    By chinese = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//p[@class='title' and text()='Chinese']");
-    By englishinfield = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//input[@value='English']");
-    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[text()='Remove']");
-    By cancel = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//button[@class='btn btn-flat btn-default' and text()='Cancel']");
-    By cancelEdition = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
-    By langrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
-    By langvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//span[text()='Language is required']");
-    By profvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//span[text()='Proficiency is required']");
+    By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]");
+    By newlan = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='language']]//button[@title='Create new']");
+    By editeng = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='English']]//button[@title='Edit']");
+    By editgerman = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='Deutch']]//button[@title='Edit']");
+    By language = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//input[@name ='cvComposition.inputForms.languageModel.name']");
+    By langprofEn = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//select");
+    By langprofDe = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//p[@class='subtitle' and text()='Limited Working']");
+    By save = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//span[text()='Save']");
+    By german = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//p[@class='title' and text()='Deutch']");
+    By chinese = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//p[@class='title' and text()='Chinese']");
+    By englishinfield = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//input[@value='English']");
+    By remove = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//span[text()='Remove']");
+    By cancel = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//button[@class='btn btn-flat btn-default' and text()='Cancel']");
+    By cancelEdition = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='language']]//span[@class='cancel-icon glyphicon glyphicon-remove']");
+    By langrow = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component']");
+    By langvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='language']]//span[text()='language is required']");
+    By profvalidation = By.xpath(".//div[@class='col-xs-12 child-component list-component' and .//h5[text()='language']]//span[text()='Proficiency is required']");
 
 
     public boolean newlang() throws IOException {
@@ -179,7 +179,7 @@ public class ProfDetailsLangEditable extends ElementActions {
         return true;
     }
 
-    //Language field validation check
+    //language field validation check
     public boolean validationLangfield() throws IOException {
         WebElement element5 = driver.findElement(newlan);
         Actions action = new Actions(driver);

@@ -32,7 +32,7 @@ public class RunTestCases extends Global {
     }
 
     @Test
-    public void LoginTest() throws IOException, InterruptedException {
+    public void loginTest() throws IOException, InterruptedException {
         loginValidCredentials.logout();
         loginInvalidCredentials.invalidusername();
         loginInvalidCredentials.invalidpass();
@@ -43,13 +43,13 @@ public class RunTestCases extends Global {
 
 
     @Test
-    public void Job() throws IOException, InterruptedException {
+    public void job() throws IOException, InterruptedException {
         profDetailsJobNotEditable.jobIneditable();
     }
 
 
     @Test
-    public void Language() throws IOException, InterruptedException {
+    public void language() throws IOException, InterruptedException {
         profDetailsLangEditable.newlang();
         profDetailsLangEditable.cancelEditProf();
         profDetailsLangEditable.langEdit();
@@ -63,7 +63,7 @@ public class RunTestCases extends Global {
 
 
     @Test
-    public void Education() throws IOException, InterruptedException {
+    public void education() throws IOException, InterruptedException {
         profDetailsEducationEditable.addEdu();
         profDetailsEducationEditable.langEditCancel();
         profDetailsEducationEditable.editCalendarPeriod();
@@ -80,7 +80,7 @@ public class RunTestCases extends Global {
 
 
     @Test
-    public void Certification() throws IOException, InterruptedException {
+    public void certification() throws IOException, InterruptedException {
         profDetailsCertificationEditable.addNew();
         profDetailsCertificationEditable.certEditCancel();
         profDetailsCertificationEditable.certCreateCancel();
@@ -98,7 +98,7 @@ public class RunTestCases extends Global {
 
 
     @Test
-    public void Training() throws IOException, InterruptedException {
+    public void training() throws IOException, InterruptedException {
         profDetailsTrainingEditable.addNew();
         profDetailsTrainingEditable.EditCancel();
         profDetailsTrainingEditable.CreateCancel();
