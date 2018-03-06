@@ -57,6 +57,12 @@
       <artifactId>google-api-services-sheets</artifactId>
       <version>v4-rev483-1.22.0</version>
     </dependency>
+      <dependency>
+          <groupId>ant</groupId>
+          <artifactId>ant</artifactId>
+          <version>1.6.5</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
   <build>
     <resources>
