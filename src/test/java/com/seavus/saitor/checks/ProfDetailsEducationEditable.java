@@ -11,7 +11,6 @@ import java.util.List;
 
 
 public class ProfDetailsEducationEditable extends ElementActions {
-
     By edublock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]");
     By newedu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//button[@title='Create new']");
     By mslu = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Education']]//p[text()='MSLU']");
@@ -53,7 +52,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(eduend);
         input.type(eduend, "2012");
         button.click(save);
-
         try {
             driver.findElement(mslu);
             CheckRecorder.setValue("build 1!D31", CheckRecorder.PASSED);
@@ -61,12 +59,10 @@ public class ProfDetailsEducationEditable extends ElementActions {
             CheckRecorder.setValue("build 1!D31", CheckRecorder.FAILED);
         }
         return true;
-
     }
 
     //check the "Cancel" at edit mode
     public boolean langEditCancel() throws IOException {
-
         WebElement element1 = driver.findElement(mslu);
         Actions action1 = new Actions(driver);
         action1.moveToElement(element1).build().perform();
@@ -75,7 +71,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
         input.clear(eduname);
         input.type(eduname, "School");
         button.click(canceledit);
-
         try {
             driver.findElement(school);
             CheckRecorder.setValue("build 1!D32", CheckRecorder.FAILED);
@@ -87,7 +82,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
     //Check  edit "From"/"To" from the "Calendar" button
     public boolean editCalendarPeriod() throws IOException {
-
         WebElement element2 = driver.findElement(msluedit);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -118,7 +112,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
 
     //Edit Education name check
     public boolean editEdu() throws IOException {
-
         WebElement element3 = driver.findElement(msluedit);
         Actions action3 = new Actions(driver);
         scrolluntilvisibility();
@@ -163,11 +156,9 @@ public class ProfDetailsEducationEditable extends ElementActions {
             button.click(save);
             scrolluntilvisibility();
             scroll();
-
         }
         System.out.print("repeat counted = " + " " + duplicateCount(enteredValue));
         if (repeat == duplicateCount(enteredValue)) {
-
             CheckRecorder.setValue("build 1!D39", CheckRecorder.PASSED);
         } else {
             CheckRecorder.setValue("build 1!D39", CheckRecorder.FAILED);
@@ -185,9 +176,7 @@ public class ProfDetailsEducationEditable extends ElementActions {
         String endEdu = "2000";
         enteredValue.period = startEdu + " - " + endEdu;
         Actions action4 = new Actions(driver);
-
         int repeatdelete = 3;
-
         for (int a = 0; a < repeatdelete; a++) {
             WebElement element4 = driver.findElement(editBSUIR);
             action4.moveToElement(element4).build().perform();
@@ -195,14 +184,11 @@ public class ProfDetailsEducationEditable extends ElementActions {
             button.click(remove);
             scrolluntilvisibility();
         }
-
         if (repeatdelete == duplicateCount(enteredValue)) {
-
             CheckRecorder.setValue("build 1!D38", CheckRecorder.FAILED);
         } else {
             CheckRecorder.setValue("build 1!D38", CheckRecorder.PASSED);
         }
-
         return true;
     }
 
@@ -223,7 +209,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(eduend);
         input.type(eduend, "2013");
         button.click(cancelnewedu);
-
         try {
             driver.findElement(harvard);
             CheckRecorder.setValue("build 1!D33", CheckRecorder.FAILED);
@@ -301,7 +286,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
         button.click(eduend);
         input.type(eduend, "2000");
         button.click(save);
-
         try {
             driver.findElement(edunamerequired);
             CheckRecorder.setValue("build 1!D40", CheckRecorder.PASSED);
@@ -328,7 +312,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
         input.type(eduend, "2000");
         button.click(save);
         try {
-
             driver.findElement(edudegreerequired);
             CheckRecorder.setValue("build 1!D41", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
@@ -364,7 +347,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
         WebElement element = driver.findElement(save);
         action2.doubleClick(element).perform();
         if (duplicateCount(enteredValue) >= 2) {
-
             CheckRecorder.setValue("build 1!D42", CheckRecorder.FAILED);
         } else {
             CheckRecorder.setValue("build 1!D42", CheckRecorder.PASSED);
@@ -376,7 +358,6 @@ public class ProfDetailsEducationEditable extends ElementActions {
     public int duplicateCount(EducationItem item) {
         List<WebElement> elementslist = driver.findElements(edurow);
         List<EducationItem> educationItems = new ArrayList<>();
-
         for (int n = 0; n < elementslist.size(); n++) {
             WebElement webElement = elementslist.get(n);
             EducationItem educationItem = new EducationItem();

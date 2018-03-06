@@ -11,7 +11,6 @@ import java.util.List;
 
 
 public class ProfDetailsCertificationEditable extends ElementActions {
-
     By certificateblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]");
     By newcertificatebutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//button[@title='Create new']");
     By certnameQC = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Certification']]//p[text()='Web QC']");
@@ -41,7 +40,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
     //Create a new certification
     public boolean addNew() throws IOException {
         wait.presenceOfElement(newcertificatebutton);
-
         WebElement element1 = driver.findElement(newcertificatebutton);
         Actions action1 = new Actions(driver);
         scrolluntilvisibility();
@@ -50,7 +48,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         button.click(newcertificatebutton);
         scroll();
         button.click(certnamefield);
-
         input.type(certnamefield, "Web QA");
         button.click(certissuer);
         input.type(certissuer, "basic");
@@ -59,16 +56,13 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(certyearback);
             wait.visibilityOfElement(october);
         }
-
         button.click(october);
         button.click(save);
-
         try {
             driver.findElement(certnameWeb);
             CheckRecorder.setValue("build 1!D43", CheckRecorder.PASSED);
@@ -80,7 +74,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
 
     //check the "Cancel" at edit mode
     public boolean certEditCancel() throws IOException {
-
         WebElement element1 = driver.findElement(webedit);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -91,7 +84,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         input.clear(certnamefield);
         input.type(certnamefield, "School");
         button.click(canceledit);
-
         try {
             driver.findElement(school);
             CheckRecorder.setValue("build 1!D44", CheckRecorder.FAILED);
@@ -102,7 +94,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
     }
 
     public boolean certCreateCancel() throws IOException {
-
         WebElement element1 = driver.findElement(newcertificatebutton);
         Actions action = new Actions(driver);
         action.moveToElement(element1).build().perform();
@@ -116,16 +107,13 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(certyearback);
             wait.visibilityOfElement(october);
         }
-
         button.click(october);
         button.click(cancelnewcert);
-
         try {
             driver.findElement(certnameQC);
             CheckRecorder.setValue("build 1!D45", CheckRecorder.FAILED);
@@ -137,40 +125,33 @@ public class ProfDetailsCertificationEditable extends ElementActions {
 
     //Check  edit "date" from the "Calendar" button
     public boolean editCalendarPeriod() throws IOException {
-
         WebElement element2 = driver.findElement(webedit);
         Actions action = new Actions(driver);
         action.moveToElement(element2).build().perform();
         button.click(webedit);
         button.click(calendarbutton);
-
         WebElement element3 = driver.findElement(certyearforward);
         Actions action3 = new Actions(driver);
         action3.moveToElement(element3).build().perform();
         int repeat = 2;
-
         for (int a = 0; a < repeat; a++) {
             action3.moveToElement(element3).build().perform();
             button.click(certyearforward);
             wait.visibilityOfElement(october);
         }
-
         button.click(october);
         button.click(save);
-
         try {
             driver.findElement(oct2017);
             CheckRecorder.setValue("build 1!D46", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D46", CheckRecorder.FAILED);
         }
-
         return true;
     }
 
     //Edit Cetrification name and issuer check
     public boolean editCertnameIssuer() throws IOException {
-
         WebElement element4 = driver.findElement(webedit);
         Actions action4 = new Actions(driver);
         action4.moveToElement(element4).build().perform();
@@ -182,7 +163,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         input.clear(editcertissuer);
         input.type(editcertissuer, "Belhard");
         button.click(save);
-
         try {
             driver.findElement(belhard);//need to add additional "driver.findElement(desctop)"
             CheckRecorder.setValue("build 1!D47", CheckRecorder.PASSED);
@@ -202,9 +182,7 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         String month = "10";
         String year = "2015";
         enteredValue.subtitle = month + "/" + year;
-
         int repeat = 3;
-
         for (int i = 0; i < repeat; i++) {
             action1.moveToElement(element1).build().perform();
             scrolluntilvisibility();
@@ -231,16 +209,13 @@ public class ProfDetailsCertificationEditable extends ElementActions {
 
     //remove Certification
     public boolean removeCert() throws IOException {
-
         CertItem enteredValue = new CertItem();
         enteredValue.title = "Web QC";
         String month = "10";
         String year = "2015";
         enteredValue.subtitle = month + "/" + year;
         Actions action4 = new Actions(driver);
-
         int repeatdelete = 3;
-
         for (int a = 0; a < repeatdelete; a++) {
             WebElement element4 = driver.findElement(editQC);
             action4.moveToElement(element4).build().perform();
@@ -248,14 +223,11 @@ public class ProfDetailsCertificationEditable extends ElementActions {
             button.click(remove);
             scrolluntilvisibility();
         }
-
         if (repeatdelete == duplicateCount(enteredValue)) {
-
             CheckRecorder.setValue("build 1!D48", CheckRecorder.FAILED);
         } else {
             CheckRecorder.setValue("build 1!D48", CheckRecorder.PASSED);
         }
-
         return true;
     }
 
@@ -294,14 +266,12 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         button.click(certdatefield);
         input.type(certdatefield, "10/2015");
         button.click(save);
-
         try {
             driver.findElement(issuervalidmessage);
             CheckRecorder.setValue("build 1!D51", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D51", CheckRecorder.FAILED);
         }
-
         button.click(cancelnewcert);
         return true;
     }
@@ -318,14 +288,12 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         button.click(certissuer);
         input.type(certissuer, "basic");
         button.click(save);
-
         try {
             driver.findElement(datevalidmessage);
             CheckRecorder.setValue("build 1!D52", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D52", CheckRecorder.FAILED);
         }
-
         button.click(cancelnewcert);
         return true;
     }
@@ -345,14 +313,12 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         button.click(certdatefield);
         input.type(certdatefield, "October/2015");
         button.click(save);
-
         try {
             driver.findElement(datevalidmessage);
             CheckRecorder.setValue("build 1!D53", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D53", CheckRecorder.FAILED);
         }
-
         button.click(cancelnewcert);
         return true;
 
@@ -375,22 +341,18 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 1;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(certyearforward);
             wait.visibilityOfElement(october);
         }
-
         button.click(save);
-
         try {
             driver.findElement(datevalidmessage);
             CheckRecorder.setValue("build 1!D54", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D54", CheckRecorder.FAILED);
         }
-
         return true;
     }
 
@@ -401,7 +363,6 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         String month = "10";
         String year = "2015";
         enteredValue.subtitle = month + "/" + year;
-
         WebElement element6 = driver.findElement(newcertificatebutton);
         Actions action1 = new Actions(driver);
         action1.moveToElement(element6).build().perform();
@@ -413,18 +374,14 @@ public class ProfDetailsCertificationEditable extends ElementActions {
         input.type(certissuer, "basic");
         button.click(certdatefield);
         input.type(certdatefield, enteredValue.subtitle);
-
         Actions action3 = new Actions(driver);
         WebElement element = driver.findElement(save);
         action3.doubleClick(element).perform();
-
         if (duplicateCount(enteredValue) >= 2) {
-
             CheckRecorder.setValue("build 1!D55", CheckRecorder.FAILED);
         } else {
             CheckRecorder.setValue("build 1!D55", CheckRecorder.PASSED);
         }
-
         return true;
     }
 
@@ -432,18 +389,14 @@ public class ProfDetailsCertificationEditable extends ElementActions {
     public int duplicateCount(CertItem item) {
         List<WebElement> elementslist = driver.findElements(certrow);
         List<CertItem> certItems = new ArrayList<>();
-
         for (int n = 0; n < elementslist.size(); n++) {
             WebElement webElement = elementslist.get(n);
             CertItem certItem = new CertItem();
-
             certItem.title = webElement.findElement(By.className("title")).getText();
             certItem.subtitle = webElement.findElement(By.className("subtitle")).getText();
             certItems.add(certItem);
         }
-
         int duplicateCount = 0;
-
         for (int k = 0; k < certItems.size(); k++) {
             if (certItems.get(k).title.equals(item.title)
                     && certItems.get(k).subtitle.equals(item.subtitle)) {

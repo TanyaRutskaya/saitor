@@ -14,7 +14,6 @@ import java.util.List;
 
 
 public class ProfDetailsTrainingEditable extends ElementActions {
-
     public static final String PASSED = CheckRecorder.PASSED;
     By trainingblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]");
     By newtrainingbutton = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Training']]//button[@title='Create new']");
@@ -62,7 +61,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
@@ -81,7 +79,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         }
         button.click(octoberto);
         button.click(save);
-
         try {
             driver.findElement(trainingnameWeb);
             CheckRecorder.setValue("build 1!D56", CheckRecorder.PASSED);
@@ -93,7 +90,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
     //check the "Cancel" at edit mode
     public boolean EditCancel() throws IOException {
-
         WebElement element1 = driver.findElement(webedit);
         Actions action = new Actions(driver);
         action.moveToElement(element1).build().perform();
@@ -102,7 +98,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         input.clear(trainingnamefield);
         input.type(trainingnamefield, "School");
         button.click(canceledit);
-
         try {
             driver.findElement(school);
             CheckRecorder.setValue("build 1!D57", CheckRecorder.FAILED);
@@ -113,7 +108,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     }
 
     public boolean CreateCancel() throws IOException {
-
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action = new Actions(driver);
         scrollUntilVisibility();
@@ -127,29 +121,24 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
         }
-
         button.click(octoberfrom);
         button.click(calendartobutton);
         WebElement element3 = driver.findElement(yearbackto);
         Actions action3 = new Actions(driver);
         action3.moveToElement(element3).build().perform();
         int repeat1 = 2;
-
         for (int b = 0; b < repeat1; b++) {
             action3.moveToElement(element3).build().perform();
             button.click(yearbackto);
             wait.visibilityOfElement(octoberto);
         }
-
         button.click(octoberto);
         button.click(cancelnew);
-
         try {
             driver.findElement(trainingnameQC);
             CheckRecorder.setValue("build 1!D58", CheckRecorder.FAILED);
@@ -161,7 +150,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
     //Edit Training name
     public boolean editTrainingName() throws IOException {
-
         WebElement element1 = driver.findElement(webedit);
         Actions action = new Actions(driver);
         action.moveToElement(element1).build().perform();
@@ -170,7 +158,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         input.clear(trainingnamefield);
         input.type(trainingnamefield, "Belhard");
         button.click(save);
-
         try {
             driver.findElement(belhard);//need to add additional "driver.findElement(desctop)"
             CheckRecorder.setValue("build 1!D59", CheckRecorder.PASSED);
@@ -182,16 +169,13 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
     //the ability to add > than 1 block
     public boolean morethan1block() throws IOException {
-
         WebElement element1 = driver.findElement(newtrainingbutton);
         CertItem enteredValue = new CertItem();
         enteredValue.title = "Web QC";
         String from = "10/2015";
         String to = "10/2016";
         enteredValue.date = from + " - " + to;
-
         int repeatblock = 3;
-
         for (int i = 0; i < repeatblock; i++) {
             Actions action1 = new Actions(driver);
             scrollUntilVisibility();
@@ -208,7 +192,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         }
         System.out.print("repeat counted = " + " " + duplicateCount(enteredValue));
         if (repeatblock == duplicateCount(enteredValue)) {
-
             CheckRecorder.setValue("build 1!D60", CheckRecorder.PASSED);
         } else {
             CheckRecorder.setValue("build 1!D60", CheckRecorder.FAILED);
@@ -218,7 +201,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
     //remove Training
     public boolean removeTraing() throws IOException {
-
         CertItem enteredValue = new CertItem();
         enteredValue.title = "Web QC";
         String from = "10/2015";
@@ -233,9 +215,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
             button.click(remove);
             scrollUntilVisibility();
         }
-
         if (repeatdelete == duplicateCount(enteredValue)) {
-
             CheckRecorder.setValue("build 1!D61", CheckRecorder.FAILED);
         } else {
             CheckRecorder.setValue("build 1!D61", CheckRecorder.PASSED);
@@ -245,7 +225,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
 
     //check the validation for the field "Training name"
     public boolean validationTrainingname() throws IOException, InterruptedException {
-
         WebElement element1 = driver.findElement(newtrainingbutton);
         Actions action1 = new Actions(driver);
         scrollUntilVisibility();
@@ -257,7 +236,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
@@ -276,7 +254,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         }
         button.click(octoberto);
         button.click(save);
-
         try {
             driver.findElement(namevalidmessage);
             CheckRecorder.setValue("build 1!D62", CheckRecorder.PASSED);
@@ -309,7 +286,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         }
         button.click(octoberto);
         button.click(save);
-
         try {
             driver.findElement(validfrommessage);
             CheckRecorder.setValue("build 1!D63", CheckRecorder.PASSED);
@@ -335,16 +311,13 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 3;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
         }
-
         button.click(octoberfrom);
         button.click(save);
-
         try {
             driver.findElement(validtomessage);
             CheckRecorder.setValue("build 1!D64", CheckRecorder.PASSED);
@@ -370,13 +343,11 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action2 = new Actions(driver);
         action2.moveToElement(element2).build().perform();
         int repeat = 2;
-
         for (int a = 0; a < repeat; a++) {
             action2.moveToElement(element2).build().perform();
             button.click(yearbackfrom);
             wait.visibilityOfElement(octoberfrom);
         }
-
         button.click(octoberfrom);
         button.click(calendartobutton);
         WebElement element3 = driver.findElement(yearbackto);
@@ -390,7 +361,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         }
         button.click(octoberto);
         button.click(save);
-
         try {
             driver.findElement(validmessage);
             CheckRecorder.setValue("build 1!D65", CheckRecorder.PASSED);
@@ -473,9 +443,7 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         Actions action3 = new Actions(driver);
         WebElement element = driver.findElement(save);
         action3.doubleClick(element).perform();
-
         if (duplicateCount(enteredValue) >= 2) {
-
             CheckRecorder.setValue("build 1!D68", CheckRecorder.FAILED);
         } else {
             CheckRecorder.setValue("build 1!D68", CheckRecorder.PASSED);
@@ -487,19 +455,14 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     public int duplicateCount(CertItem item) {
         List<WebElement> elementsList = driver.findElements(trainingrow);
         List<CertItem> certItems = new ArrayList<>();
-
         for (int n = 0; n < elementsList.size(); n++) {
             WebElement webElement = elementsList.get(n);
             CertItem certItem = new CertItem();
-
             certItem.title = webElement.findElement(By.className("title")).getText();
             certItem.date = webElement.findElement(By.className("date")).getText();
             certItems.add(certItem);
-
         }
-
         int duplicateCount = 0;
-
         for (int k = 0; k < certItems.size(); k++) {
             if (certItems.get(k).title.equals(item.title)
                     && certItems.get(k).date.equals(item.date)) {
@@ -513,7 +476,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
     public void scroll() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,-100)", "");
-
     }
 
 
@@ -521,7 +483,6 @@ public class ProfDetailsTrainingEditable extends ElementActions {
         WebElement element = driver.findElement(trainingblock);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         wait.presenceOfElement(newtrainingbutton);
-
     }
 
 

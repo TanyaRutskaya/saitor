@@ -10,7 +10,6 @@ import java.io.IOException;
 
 
 public class RunTestCases extends Global {
-
     LoginValidCredentials loginValidCredentials = new LoginValidCredentials();
     LoginInvalidCredentials loginInvalidCredentials = new LoginInvalidCredentials();
     LoginEditInputValues loginEditInputValues = new LoginEditInputValues();
@@ -23,20 +22,17 @@ public class RunTestCases extends Global {
 
     @BeforeTest
     public void setUpTest() throws IOException {
-
         loginValidCredentials.pageNavigation();
         loginValidCredentials.login();
     }
 
     @Test
     public void testLoginSuccessful() throws Exception {
-
         loginValidCredentials.loginSuccessful();
     }
 
     @Test
     public void LoginTest() throws IOException, InterruptedException {
-
         loginValidCredentials.logout();
         loginInvalidCredentials.invalidusername();
         loginInvalidCredentials.invalidpass();
@@ -48,14 +44,12 @@ public class RunTestCases extends Global {
 
     @Test
     public void Job() throws IOException, InterruptedException {
-
         profDetailsJobNotEditable.jobIneditable();
     }
 
 
     @Test
     public void Language() throws IOException, InterruptedException {
-
         profDetailsLangEditable.newlang();
         profDetailsLangEditable.cancelEditProf();
         profDetailsLangEditable.langEdit();
@@ -70,7 +64,6 @@ public class RunTestCases extends Global {
 
     @Test
     public void Education() throws IOException, InterruptedException {
-
         profDetailsEducationEditable.addEdu();
         profDetailsEducationEditable.langEditCancel();
         profDetailsEducationEditable.editCalendarPeriod();
@@ -88,7 +81,6 @@ public class RunTestCases extends Global {
 
     @Test
     public void Certification() throws IOException, InterruptedException {
-
         profDetailsCertificationEditable.addNew();
         profDetailsCertificationEditable.certEditCancel();
         profDetailsCertificationEditable.certCreateCancel();
@@ -107,7 +99,6 @@ public class RunTestCases extends Global {
 
     @Test
     public void Training() throws IOException, InterruptedException {
-
         profDetailsTrainingEditable.addNew();
         profDetailsTrainingEditable.EditCancel();
         profDetailsTrainingEditable.CreateCancel();
@@ -126,7 +117,6 @@ public class RunTestCases extends Global {
 
     @AfterClass
     public void tearDownClass() {
-
         loginValidCredentials.navigate.closeDriver();
         loginInvalidCredentials.navigate.closeDriver();
         profDetailsJobNotEditable.navigate.closeDriver();

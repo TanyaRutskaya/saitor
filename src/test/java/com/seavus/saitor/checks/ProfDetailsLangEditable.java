@@ -12,7 +12,6 @@ import java.util.List;
 
 
 public class ProfDetailsLangEditable extends ElementActions {
-
     By languageblock = By.xpath("//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]");
     By newlan = By.xpath("//div[@class='col-xs-12 child-component list-component' and .//h5[text()='Language']]//button[@title='Create new']");
     By editeng = By.xpath(".//div[@class='col-xs-12 child-component list-component' and //*[text()='Language']]//div[@class='row col-xs-12 padding-left-none read-only-item-component' and .//p[text()='English']]//button[@title='Edit']");
@@ -33,23 +32,19 @@ public class ProfDetailsLangEditable extends ElementActions {
 
 
     public boolean newlang() throws IOException {
-
         wait.presenceOfElement(newlan);
         WebElement element = driver.findElement(newlan);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
         scroll();
         action.moveToElement(element).build().perform();
-
         button.click(newlan);
         button.click(language);
         input.type(language, "English");
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("NATIVE");
         button.click(save);
-
         try {
-
             driver.findElement(editeng);
             CheckRecorder.setValue("build 1!D22", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
@@ -61,7 +56,6 @@ public class ProfDetailsLangEditable extends ElementActions {
 
     //Cancel check in Edit mode
     public boolean cancelEditProf() throws IOException {
-
         WebElement element6 = driver.findElement(editeng);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -85,7 +79,6 @@ public class ProfDetailsLangEditable extends ElementActions {
 
     // check the adjustment of the language
     public boolean langEdit() throws IOException {
-
         WebElement element2 = driver.findElement(editeng);
         Actions action2 = new Actions(driver);
         scrolluntilvisibility();
@@ -96,19 +89,16 @@ public class ProfDetailsLangEditable extends ElementActions {
         input.type(language, "Deutch");
         button.click(save);
         try {
-
             driver.findElement(german);
             CheckRecorder.setValue("build 1!D23", CheckRecorder.PASSED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D23", CheckRecorder.FAILED);
         }
-
         return true;
     }
 
     //checking the adjustment of the  language level
     public boolean langprofEdit() throws IOException {
-
         WebElement element3 = driver.findElement(editgerman);
         Actions action = new Actions(driver);
         action.moveToElement(element3).build().perform();
@@ -127,7 +117,6 @@ public class ProfDetailsLangEditable extends ElementActions {
 
 
     public boolean removelang() throws IOException {
-
         WebElement element4 = driver.findElement(editgerman);
         Actions action = new Actions(driver);
         action.moveToElement(element4).build().perform();
@@ -155,14 +144,12 @@ public class ProfDetailsLangEditable extends ElementActions {
         Select level = new Select(driver.findElement(langprofEn));
         level.selectByValue("NATIVE");
         button.click(cancel);
-
         try {
             driver.findElement(chinese);
             CheckRecorder.setValue("build 1!D26", CheckRecorder.FAILED);
         } catch (NoSuchElementException ex) {
             CheckRecorder.setValue("build 1!D26", CheckRecorder.PASSED);
         }
-
         return true;
     }
 
@@ -194,7 +181,6 @@ public class ProfDetailsLangEditable extends ElementActions {
 
     //Language field validation check
     public boolean validationLangfield() throws IOException {
-
         WebElement element5 = driver.findElement(newlan);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -216,7 +202,6 @@ public class ProfDetailsLangEditable extends ElementActions {
 
     //Level filed validation check
     public boolean validationProffield() throws IOException {
-
         WebElement element5 = driver.findElement(newlan);
         Actions action = new Actions(driver);
         scrolluntilvisibility();
@@ -246,18 +231,15 @@ public class ProfDetailsLangEditable extends ElementActions {
     public int duplicateCount(LangItem item) {
         List<WebElement> elementslist = driver.findElements(langrow);
         List<LangItem> langItems = new ArrayList<>();
-
         for (int n = 0; n < elementslist.size(); n++) {
             WebElement webElement = elementslist.get(n);
             LangItem langItem = new LangItem();
             langItem.enterlang = webElement.findElement(By.className("title")).getText();
             langItem.enterprof = webElement.findElement(By.className("subtitle")).getText();
             langItems.add(langItem);
-
         }
 
         int duplicateCount = 0;
-
         for (int k = 0; k < langItems.size(); k++) {
             if (langItems.get(k).enterlang.equals(item.enterlang)
                     && langItems.get(k).enterprof.equals(item.enterprof)) {
@@ -278,6 +260,5 @@ public class ProfDetailsLangEditable extends ElementActions {
     class LangItem {
         public String enterlang;
         public String enterprof;
-
     }
 }
